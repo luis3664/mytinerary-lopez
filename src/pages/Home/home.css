@@ -1,0 +1,18 @@
+#headerNav {
+    min-height: 12vh;
+}
+
+main {
+    min-height: 64vh;
+    margin-top: 3vh;
+    margin-bottom: 3vh;
+    display: flexbox;
+    justify-content: center;
+}
+
+footer {
+    min-height: 12vh;
+    max-height: 12vh;
+    background: rgb(140,216,217);
+    background: linear-gradient(180deg, rgba(140,216,217,0.3) 0%, rgba(233,204,144,0.7) 100%);
+}

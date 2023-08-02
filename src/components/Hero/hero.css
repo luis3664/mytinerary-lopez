@@ -1,0 +1,16 @@
+#heroCard {
+    width: 75vw;
+    background-image: url("../public/postCard.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: top;
+}
+
+#heroBodyCard {
+    background-color: white;
+}
+
+#buttonHero img {
+    max-height: 115px;
+}

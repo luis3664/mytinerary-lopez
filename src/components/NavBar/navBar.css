@@ -1,0 +1,27 @@
+.navbar {
+    min-height: 18vh;
+    background: rgb(140,216,217);
+    background: linear-gradient(360deg, rgba(140,216,217,0.3) 0%, rgba(233,204,144,0.7) 100%);
+}
+
+.buttonLogin {
+    background-color: aliceblue;
+}
+
+.menu a {
+    text-decoration: none;
+    font-size: 1.2rem;
+    font-weight: 900;
+    color: rgba(233,204,144,1);
+    margin: 0 1.5rem 0 1.5rem;
+    text-shadow: 2px 0px rgba(28, 88, 115, 1);
+    transition: 500ms;
+}
+
+h1 {
+    padding: 0;
+}
+
+.navbar-brand figure {
+    max-width: 15%;
+}

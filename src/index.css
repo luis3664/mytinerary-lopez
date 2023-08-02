@@ -6,3 +6,12 @@
   box-sizing: border-box;
   font-family: 'Inconsolata', monospace;
 }
+
+body {
+  background-image: url("/backgroundTinerary.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: top;
+  background-attachment: fixed;
+}
