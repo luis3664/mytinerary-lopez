@@ -1,3 +1,6 @@
-/* #textFooter {
-    background-color: aqua;
-} */
+#textFooter {
+    font-size: 30px;
+    font-weight: 600;
+    color: #cd821a;
+    text-shadow: 2px 0px rgba(28, 88, 115, 1);
+}

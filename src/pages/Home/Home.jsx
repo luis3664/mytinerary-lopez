@@ -1,28 +1,17 @@
 import './home.css'
-import NavBar from '../../components/NavBar/NavBar'
-import Footer from '../../components/Footer/Footer'
 import HeroSection from '../../components/Hero/Hero'
+import LayoutMain from '../../layouts/LayoutMain'
 
 
 const Home = () => {
     return (
-        <>
-            <header className='mx-0 justify-content-center align-items-center' id='headerNav'>
-                <NavBar />
-            </header>
+        <LayoutMain>
+            <HeroSection />
 
-            <main className='container d-flex justify-content-center align-items-center'>
-                <HeroSection />
+            <aside>
 
-                <aside>
-
-                </aside>
-            </main>
-
-            <footer className='d-flex justify-content-center align-items-center'>
-                <Footer />
-            </footer>
-        </>
+            </aside>
+        </LayoutMain>
     )
 }
 

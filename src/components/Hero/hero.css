@@ -11,6 +11,8 @@
     background-color: white;
 }
 
-#buttonHero img {
-    max-height: 115px;
+#imgHero:hover {
+    animation: happiness 0.4s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
 }

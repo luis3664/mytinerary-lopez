@@ -1,0 +1,24 @@
+@keyframes happiness {
+    0% {
+        transform: rotateZ(0deg);
+    }
+    50% {
+        transform: rotateZ(3deg);
+    }
+    100% {
+        transform: rotateZ(-3deg);
+    }
+}
+
+@media (min-width:0px) and (max-width:321px) {
+    #imgHero {
+        width: 180px;
+    }
+}
+
+@media (min-width:0px) and (max-width:426px) {
+
+    #heroBodyCard {
+        padding: 10px !important;
+    }
+}
