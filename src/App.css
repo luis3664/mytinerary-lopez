@@ -10,15 +10,24 @@
     }
 }
 
-@media (min-width:0px) and (max-width:321px) {
+@media (min-width:0px) and (max-width:426px) {
     #imgHero {
         width: 180px;
     }
-}
-
-@media (min-width:0px) and (max-width:426px) {
 
     #heroBodyCard {
         padding: 10px !important;
     }
 }
+
+/* @media (min-width:322px) and (max-width:376px) {
+    #heroBodyCard {
+        padding: 10px !important;
+    }
+}
+
+@media (min-width:377) and (max-width:426) {
+    #heroBodyCard {
+        padding: 10px !important;
+    }
+} */

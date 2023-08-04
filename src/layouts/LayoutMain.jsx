@@ -5,11 +5,11 @@ import Footer from "../components/Footer/Footer"
 const LayoutMain = ({children}) => {
     return (
         <>
-            <header className='mx-0 justify-content-center align-items-center' id='headerNav'>
+            <header className='mx-0 container-fluid justify-content-center align-items-center' id='headerNav'>
                 <NavBar />
             </header>
 
-            <main className='container d-flex justify-content-center align-items-center'>
+            <main className='container d-flex flex-column justify-content-center align-items-center'>
                 {children}
             </main>
 
