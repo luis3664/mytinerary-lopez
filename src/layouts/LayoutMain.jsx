@@ -13,7 +13,7 @@ const LayoutMain = ({children}) => {
                 {children}
             </main>
 
-            <footer className='container-fluid d-flex justify-content-center align-items-center'>
+            <footer className='container-fluid d-flex justify-content-center align-items-center row flex-wrap m-0'>
                 <Footer />
             </footer>
         </>

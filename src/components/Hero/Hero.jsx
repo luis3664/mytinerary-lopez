@@ -15,7 +15,7 @@ const Hero = () => {
                 </div>
 
                 <div className='d-flex flex-column col-lg-7 mx-auto'>
-                    <h3 className='card-title mt-3'>{heroTitle}</h3>
+                    <h2 className='card-title mt-3'>{heroTitle}</h2>
                     <p className='card-text mt-4'>{heroText}</p>
 
                     <CallToAction />

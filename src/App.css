@@ -35,8 +35,16 @@
 }
 
 @media (min-width:2000px) {
-    h3, p, a {
+    h2, p {
         transform: scale(1.3);
+    }
+
+    a {
+        font-size: 2.3rem !important;
+    }
+
+    #footerColumns i {
+        font-size: 90px !important;
     }
 
     h1, #logoTinerary {

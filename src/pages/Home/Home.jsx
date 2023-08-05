@@ -10,8 +10,8 @@ const Home = () => {
             <HeroSection />
 
             <section className='row mt-5' id='carouselMain'>
+                <h2 className='text-center title-carousel'>Popular Mytineraries</h2>
                 <article>
-                    <h3 className='text-center title-carousel'>Popular Mytineraries</h3>
                     <CarouselHome />
                 </article>
             </section>

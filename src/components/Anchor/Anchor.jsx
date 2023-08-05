@@ -2,7 +2,7 @@ import './anchor.css'
 
 const Anchor = ({href, title}) => {
     return (
-        <a href={href}>{title}</a>
+        <a href={href} className='text-decoration-none'>{title}</a>
     )
 }
 
