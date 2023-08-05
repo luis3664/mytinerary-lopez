@@ -6,23 +6,7 @@ import cities from '../../assets/data/data'
 const CarouselHome = () => {
 
     let [slide, setSlide] = useState(0);
-    let [slides, setSlides] = useState([
-        [
-            {
-                img: './trip.png',
-                name: 'Loading'
-            },{
-                img: './trip.png',
-                name: 'Loading'
-            },{
-                img: './trip.png',
-                name: 'Loading'
-            },{
-                img: './trip.png',
-                name: 'Loading'
-            }
-        ]
-    ]);
+    let [slides, setSlides] = useState([[]]);
     
     function makeSlides(array) {
         let slidesTotal = [];
@@ -39,7 +23,7 @@ const CarouselHome = () => {
         if (arrayAux.length > 3 && slidesTotal.length < 10) {
             slidesTotal.push(arrayAux);
         }
-
+        
         return slidesTotal;
     };
 
@@ -66,7 +50,25 @@ const CarouselHome = () => {
     return (
         <div className='carousel slide px-5 d-flex justify-content-center align-items-center'>
             <CarouselSlide>
-                {slides[slide]}
+                {slides.length > 0 ? (
+                    slides[slide]
+                ):(
+                    [
+                        {
+                            img: './trip.png',
+                            name: 'Loading...'
+                        },{
+                            img: './trip.png',
+                            name: 'Loading...'
+                        },{
+                            img: './trip.png',
+                            name: 'Loading...'
+                        },{
+                            img: './trip.png',
+                            name: 'Loading...'
+                        }
+                    ]
+                )}
             </CarouselSlide>
 
             <button className='carousel-control-prev' onClick={prevSlide} type='button'>
