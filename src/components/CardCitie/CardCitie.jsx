@@ -6,7 +6,7 @@ const CardCitie = ({hrefImg, name}) => {
             <figure className='m-0'>
                 <img src={hrefImg} className='object-fit' alt={name} />
             </figure>
-            <p className='text-center my-auto'>{name}</p>
+            <p className='text-center my-auto fst-italic'>{name}</p>
         </div>
     )
 }

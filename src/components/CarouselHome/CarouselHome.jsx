@@ -1,39 +1,73 @@
 import './carouselHome.css'
-import CardCitie from '../CardCitie/CardCitie'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
+import CarouselSlide from '../CarouselSlide/CarouselSlide'
 import cities from '../../assets/data/data'
 
 const CarouselHome = () => {
 
-    let [slide, setSlide] = useState(0)
+    let [slide, setSlide] = useState(0);
+    let [slides, setSlides] = useState([
+        [
+            {
+                img: './trip.png',
+                name: 'Loading'
+            },{
+                img: './trip.png',
+                name: 'Loading'
+            },{
+                img: './trip.png',
+                name: 'Loading'
+            },{
+                img: './trip.png',
+                name: 'Loading'
+            }
+        ]
+    ]);
+    
+    function makeSlides(array) {
+        let slidesTotal = [];
+        let arrayAux = [];
+
+        for (let i = 0; i < array.length; i++) {
+            if (i % 4 === 0 && i !== 0) {
+                slidesTotal.push(arrayAux);
+                arrayAux = [];
+            }
+            arrayAux.push(array[i]);
+        }
+
+        if (arrayAux.length > 3 && slidesTotal.length < 10) {
+            slidesTotal.push(arrayAux);
+        }
+
+        return slidesTotal;
+    };
 
     const nextSlide = () => {
-        if (slide == 2) {
+        if (slide == slides.length - 1) {
             setSlide(0)
         } else {
-            setSlide(slide+1)
+            setSlide(slide + 1)
         }
-    }
+    };
 
     const prevSlide = () => {
         if (slide == 0) {
-            setSlide(2)
+            setSlide(slides.length - 1)
         } else {
-            setSlide(slide-1)
+            setSlide(slide - 1)
         }
-    }
-    console.log(cities);
+    };
+
+    useEffect(() => {
+        setSlides(makeSlides(cities));
+    }, []);
+
     return (
-        <div className='carousel carousel-dark slide px-5' data-bs-ride='carousel'>
-            <div className='carousel-inner py-3'>
-                <div className='carousel-item d-flex flex-wrap justify-content-evenly align-items-center'>
-                    {/* {cities.map(city => {<CardCitie hrefImg={city.img} name={city.name} />})} */}
-                    <CardCitie hrefImg={'./buenosAires.jpeg'} name={'Buenos Aires'} />
-                    <CardCitie hrefImg={'./cancun.jpeg'} name={'Cancun'} />
-                    <CardCitie hrefImg={'./barcelona.jpeg'} name={'Cancun'} />
-                    <CardCitie hrefImg={'./newYork.jpeg'} name={'Cancun'} />
-                </div>
-            </div>
+        <div className='carousel slide px-5 d-flex justify-content-center align-items-center'>
+            <CarouselSlide>
+                {slides[slide]}
+            </CarouselSlide>
 
             <button className='carousel-control-prev' onClick={prevSlide} type='button'>
                 <span className='carousel-control-prev-icon' aria-hidden='true'></span>

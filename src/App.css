@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap');
+
 @keyframes happiness {
     0% {
         transform: rotateZ(0deg);
@@ -10,6 +12,13 @@
     }
 }
 
+@media (min-width:0px) and (max-width:375px) {
+    .cardCitie:hover {
+        transform: translate(-0.23rem, -0.23rem) !important;
+        box-shadow: 4px 4px 1.5px 0.4rem black !important;
+    }
+}
+
 @media (min-width:0px) and (max-width:426px) {
     #imgHero {
         width: 180px;
@@ -18,16 +27,48 @@
     #heroBodyCard {
         padding: 10px !important;
     }
-}
 
-/* @media (min-width:322px) and (max-width:376px) {
-    #heroBodyCard {
-        padding: 10px !important;
+    .carousel-control-prev-icon,
+    .carousel-control-next-icon {
+        padding: 1em !important;
     }
 }
 
-@media (min-width:377) and (max-width:426) {
-    #heroBodyCard {
-        padding: 10px !important;
+@media (min-width:2000px) {
+    h3, p, a {
+        transform: scale(1.3);
     }
-} */
+
+    h1, #logoTinerary {
+        transform: scale(1.2);
+    }
+
+    .navbar-brand {
+        margin-left: 3vw;
+    }
+
+    #buttonHero {
+        margin-top: 5vh;
+    }
+
+    #buttonHero img {
+        max-height: 160px !important;
+    }
+
+    #imgHero {
+        height: 400px;
+    }
+
+    .cardCitie {
+        width: 380px !important;
+        height: 450px !important;
+        transition: 1s;
+        padding: 15px 15px 0px 15px;
+        border: 2px solid rgb(2, 2, 2);
+    }
+
+    .carousel-control-next-icon,
+    .carousel-control-prev-icon {
+        padding: 2em !important;
+    }
+}

@@ -1,16 +1,40 @@
 const cities = [
     {
-        img: "./cancun.jpeg",
+        img: "./cities/cancun.jpeg",
         name: "Cancun"
     },{
-        img: "./barcelona.jpeg",
+        img: "./cities/barcelona.jpeg",
         name: "Barcelona"
     },{
-        img: "./bogota.jpg",
+        img: "./cities/bogota.jpg",
         name: "Bogota"
     },{
-        img: "./newYork.jpeg",
+        img: "./cities/newYork.jpeg",
         name: "New York"
+    },{
+        img: "./cities/rioJaneiro.webp",
+        name: "Rio de Janeiro"
+    },{
+        img: "./cities/paris.jpg",
+        name: "Paris"
+    },{
+        img: "./cities/tokyo.jpeg",
+        name: "Tokyo"
+    },{
+        img: "./cities/miami.jpeg",
+        name: "Miami"
+    },{
+        img: "./cities/ibiza.jpeg",
+        name: "Ibiza"
+    },{
+        img: "./cities/mexicoDF.jpg",
+        name: "Mexico DF"
+    },{
+        img: "./cities/londres.jpg",
+        name: "Londres"
+    },{
+        img: "./cities/buenosAires.jpeg",
+        name: "Buenos Aires"
     }
 ]
 

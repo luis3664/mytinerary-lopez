@@ -2,7 +2,7 @@
     background-color: rgb(255, 254, 254);
     width: 280px;
     height: 350px;
-    box-shadow: -6px -6px 2px black;
+    box-shadow: 6px 6px 2px black;
     transition: 1s;
     margin: 3px;
     padding: 15px 15px 0px 15px;
@@ -22,27 +22,21 @@
 }
 
 .cardCitie:hover {
-    transform: translate(0.5rem, 0.5rem);
-    box-shadow: -6px -6px 2px 0.4rem black;
+    transform: translate(-0.5rem, -0.5rem);
+    box-shadow: 6px 6px 2px 0.4rem black;
 }
 
 .cardCitie p {
+    font-family: 'Dancing Script', cursive;
     color: black;
-    font-size: 20px;
+    font-size: 30px;
     font-weight: bold;
 }
 
 @media (min-width:0px) and (max-width:426px) {
     .cardCitie {
-        width: 200px !important;
-        height: 270px !important;
-        box-shadow: -6px -6px 2px black;
-        margin: 3px;
-        padding: 15px 15px 0px 15px;
+        width: 200px;
+        height: 270px;
+        margin-top: 6px;
     }
-        
-    /* .cardCitie figure {
-        height: 220px;
-        width: 100%;
-    } */
 }

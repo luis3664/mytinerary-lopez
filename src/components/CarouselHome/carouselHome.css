@@ -1,0 +1,22 @@
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    background-color: rgb(228, 188, 115);
+    border-radius: 0.7rem;
+    padding: 1.25em;
+    border: solid 2px black;
+    box-shadow: 3px 3px 2px black;
+    transition: 600ms;
+}
+
+.carousel-control-prev,
+.carousel-control-next {
+    height: 35px;
+    width: 35px;
+    top: 46%
+}
+
+.carousel-control-prev-icon:active,
+.carousel-control-next-icon:active {
+    transform: translate(0.4rem, 0.4rem);
+    box-shadow: 3px 3px 2px -0.3rem black;
+}
