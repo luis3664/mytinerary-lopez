@@ -17,7 +17,7 @@ const Footer = () => {
                     <Anchor href={'./'} title={'Support'} />
                 </div>
 
-                <div className='col d-flex flex-column justify-content-evenly aling-items-center'>
+                <div className='col-12 col-sm d-flex flex-column justify-content-evenly aling-items-center'>
                     <span>More</span>
                     <Anchor href={'./'} title={'Home'} />
 

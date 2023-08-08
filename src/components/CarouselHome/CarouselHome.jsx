@@ -5,8 +5,23 @@ import cities from '../../assets/data/data'
 
 const CarouselHome = () => {
 
-    let [slide, setSlide] = useState(0);
-    let [slides, setSlides] = useState([[]]);
+    let [indexSlide, setIndexSlide] = useState(0);
+    let [slides, setSlides] = useState([]);
+    let slideLoading = [
+        {
+            img: './trip.png',
+            name: 'Loading...'
+        },{
+            img: './trip.png',
+            name: 'Loading...'
+        },{
+            img: './trip.png',
+            name: 'Loading...'
+        },{
+            img: './trip.png',
+            name: 'Loading...'
+        }
+    ];
     
     function makeSlides(array) {
         let slidesTotal = [];
@@ -28,48 +43,38 @@ const CarouselHome = () => {
     };
 
     const nextSlide = () => {
-        if (slide == slides.length - 1) {
-            setSlide(0)
+        if (indexSlide == slides.length - 1) {
+            setIndexSlide(0)
         } else {
-            setSlide(slide + 1)
+            setIndexSlide(indexSlide + 1)
         }
     };
 
     const prevSlide = () => {
-        if (slide == 0) {
-            setSlide(slides.length - 1)
+        if (indexSlide == 0) {
+            setIndexSlide(slides.length - 1)
         } else {
-            setSlide(slide - 1)
+            setIndexSlide(indexSlide - 1)
         }
     };
-
+    
     useEffect(() => {
         setSlides(makeSlides(cities));
     }, []);
 
+    useEffect(() => {
+        if (slides.length >= 1) {
+            let intervalId = setInterval(() => {
+                nextSlide()
+            }, 4000);
+    
+            return () => {clearInterval(intervalId)}
+        }
+    }, [indexSlide])
+
     return (
-        <div className='carousel slide px-5 d-flex justify-content-center align-items-center'>
-            <CarouselSlide>
-                {slides.length > 0 ? (
-                    slides[slide]
-                ):(
-                    [
-                        {
-                            img: './trip.png',
-                            name: 'Loading...'
-                        },{
-                            img: './trip.png',
-                            name: 'Loading...'
-                        },{
-                            img: './trip.png',
-                            name: 'Loading...'
-                        },{
-                            img: './trip.png',
-                            name: 'Loading...'
-                        }
-                    ]
-                )}
-            </CarouselSlide>
+        <div className='carousel indexSlide px-5 d-flex justify-content-center align-items-center'>
+            <CarouselSlide array={slides.length > 0 ? (slides[indexSlide]):(slideLoading)} />
 
             <button className='carousel-control-prev' onClick={prevSlide} type='button'>
                 <span className='carousel-control-prev-icon' aria-hidden='true'></span>

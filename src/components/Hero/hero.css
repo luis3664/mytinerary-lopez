@@ -5,10 +5,13 @@
     background-repeat: no-repeat;
     background-size: cover;
     background-position: top;
+    margin-top: 7vh;
+    margin-bottom: 15vh;
 }
 
 #heroCard h2 {
     font-weight: bold;
+    font-size: 2.2rem;
     color: rgb(228, 188, 115);
     text-shadow: 1px 1px 0px rgb(0, 0, 0), -1px -1px 0px rgb(0, 0, 0);
 }
@@ -27,4 +30,8 @@
     animation: happiness 0.4s;
     animation-iteration-count: infinite;
     animation-direction: alternate;
+}
+
+#logoTinerary {
+    width: 100px;
 }

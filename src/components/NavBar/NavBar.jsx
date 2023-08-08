@@ -11,13 +11,16 @@ const NavBar = () => {
                     <figure className='d-flex m-0'>
                         <img src='/logoTinerary-difumination.png' className='img-fluid' alt='Logo' id='logoTinerary'/>
                     </figure>
-                    <h1 className='d-flex ms-2 ms-xxl-4'>My Tinerary</h1>
+                    <h1 className='d-flex ms-2 ms-xxl-4'>MyTinerary</h1>
                 </a>
             </div>
-            <div className='d-flex menu align-items-center col-lg-4 col-12 justify-content-lg-end justify-content-center flex-wrap flex-md-nowrap'>
-                <Anchor href={'/'} title={'Home'} />
+            <div className='d-flex menu align-items-center col-lg-6 col-12 justify-content-lg-end justify-content-center flex-wrap flex-md-nowrap'>
+                <Anchor href={'#'} title={'Home'} />
                 <Anchor href={'/'} title={'Cities'} />
-                <ButtonLogin href={'/'} title={'Login'} />
+                <ButtonLogin href={'#'} title={'Login'} />
+                {/* <figure className='d-flex m-0' id='userPhoto'>
+                    <img src='./user.png' alt='userPhoto' className='bg-white img-fluid img-thumbnail m-0' />
+                </figure> */}
             </div>
         </nav>
     )

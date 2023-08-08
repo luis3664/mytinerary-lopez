@@ -2,8 +2,8 @@ import './hero.css'
 import CallToAction from '../CallToAction/CallToAction'
 
 const Hero = () => {
-    const heroTitle = 'Find your perfect trip, designed by insiders who know and love their cities.'
-    const heroText = 'Experience the best trip organization with the help of experts who will guide you with their knowledge of the best cities you want to visit. Click on the stamp of this postcard to find the best options.'
+    const heroTitle = 'Mytinerary'
+    const heroText = 'Find your perfect trip, designed by insiders who know and love their cities. Click on the stamp of this postcard to find the best options.'
 
     return (
         <section className='card p-3 row' id='heroCard'>
@@ -15,7 +15,12 @@ const Hero = () => {
                 </div>
 
                 <div className='d-flex flex-column col-lg-7 mx-auto'>
-                    <h2 className='card-title mt-3'>{heroTitle}</h2>
+                    <h2 className='card-title mt-3 d-flex justify-content-center align-items-center'>
+                        {/* <figure className='d-flex m-0'>
+                            <img src='/logoTinerary.png' className='img-fluid' alt='Logo' id='logoTinerary'/>
+                        </figure> */}
+                        {heroTitle}
+                    </h2>
                     <p className='card-text mt-4'>{heroText}</p>
 
                     <CallToAction />
