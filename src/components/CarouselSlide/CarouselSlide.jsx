@@ -1,4 +1,3 @@
-import './carouselSlide.css'
 import CardCitie from '../CardCitie/CardCitie'
 
 const CarouselSlide = ({array}) => {

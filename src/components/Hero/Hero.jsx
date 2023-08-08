@@ -16,9 +16,6 @@ const Hero = () => {
 
                 <div className='d-flex flex-column col-lg-7 mx-auto'>
                     <h2 className='card-title mt-3 d-flex justify-content-center align-items-center'>
-                        {/* <figure className='d-flex m-0'>
-                            <img src='/logoTinerary.png' className='img-fluid' alt='Logo' id='logoTinerary'/>
-                        </figure> */}
                         {heroTitle}
                     </h2>
                     <p className='card-text mt-4'>{heroText}</p>

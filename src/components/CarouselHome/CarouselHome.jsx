@@ -27,7 +27,7 @@ const CarouselHome = () => {
         let slidesTotal = [];
         let slideAux;
         let i = 0;
-        
+
         while (i < array.length) {
             slideAux = array.slice(i, i+4);
             
@@ -71,19 +71,24 @@ const CarouselHome = () => {
     }, [indexSlide, slides])
 
     return (
-        <div className='carousel indexSlide px-5 d-flex justify-content-center align-items-center'>
-            <CarouselSlide array={slides.length > 0 ? slides[indexSlide]:slideLoading} />
+        <section className='row' id='carouselMain'>
+                <h2 className='text-center title-carousel'>Popular Mytineraries</h2>
+                <article>
+                    <div className='carousel indexSlide px-5 d-flex justify-content-center align-items-center'>
+                        <CarouselSlide array={slides.length > 0 ? slides[indexSlide]:slideLoading} />
 
-            <button className='carousel-control-prev' onClick={prevSlide} type='button'>
-                <span className='carousel-control-prev-icon' aria-hidden='true'></span>
-                <span className='visually-hidden'>Previous</span>
-            </button>
+                        <button className='carousel-control-prev' onClick={prevSlide} type='button'>
+                            <span className='carousel-control-prev-icon' aria-hidden='true'></span>
+                            <span className='visually-hidden'>Previous</span>
+                        </button>
 
-            <button className='carousel-control-next' onClick={nextSlide} type='button'>
-                <span className='carousel-control-next-icon' aria-hidden='true'></span>
-                <span className='visually-hidden'>Next</span>
-            </button>
-        </div>
+                        <button className='carousel-control-next' onClick={nextSlide} type='button'>
+                            <span className='carousel-control-next-icon' aria-hidden='true'></span>
+                            <span className='visually-hidden'>Next</span>
+                        </button>
+                    </div>
+                </article>
+            </section>
     )
 }
 

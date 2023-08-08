@@ -12,13 +12,6 @@
     }
 }
 
-@media (min-width:0px) and (max-width:375px) {
-    .cardCitie:hover {
-        transform: translate(-0.23rem, -0.23rem) !important;
-        box-shadow: 4px 4px 1.5px 0.4rem black !important;
-    }
-}
-
 @media (min-width:0px) and (max-width:426px) {
     #imgHero {
         width: 180px;

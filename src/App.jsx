@@ -1,7 +1,8 @@
 import './App.css'
 import LayoutMain from './layouts/LayoutMain'
-import Home from './pages/Home/home'
+import Home from './pages/Home/Home'
 import Cities from './pages/Cities/Cities'
+import Error404 from './pages/Error404/Error404'
 import { RouterProvider, createBrowserRouter } from 'react-router-dom'
 
 const router = createBrowserRouter([
@@ -17,7 +18,7 @@ const router = createBrowserRouter([
         element: <Cities />
       },{
         path:'*',
-        element: <Home />
+        element: <Error404 />
       }
     ]
   }

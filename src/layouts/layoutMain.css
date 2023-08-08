@@ -1,5 +1,7 @@
 #headerNav {
     min-height: 12vh;
+    background: rgb(140,216,217);
+    background: linear-gradient(235deg, rgba(140,216,217,0.4) 35%, rgba(233,204,144,0.8) 120%);
 }
 
 main {
@@ -12,5 +14,5 @@ main {
 footer {
     min-height: 12vh;
     background: rgb(140,216,217);
-    background: linear-gradient(180deg, rgba(140,216,217,0.4) 0%, rgba(233,204,144,0.8) 100%);
+    background: linear-gradient(320deg, rgba(140,216,217,0.4) 35%, rgba(233,204,144,0.8) 90%);
 }

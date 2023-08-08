@@ -3,37 +3,65 @@ import Anchor from '../Anchor/Anchor'
 import IconSocial from '../IconSocial/IconSocial'
 
 const Footer = () => {
+
+    const attendance = [
+        {
+            href: './',
+            title: 'Contact'
+        },{
+            href: './',
+            title: 'Legal Information'
+        },{
+            href: './',
+            title: 'Privacy Policy'
+        },{
+            href: './',
+            title: 'Support'
+        }
+    ];
+    const menu = [
+        {
+            href: './',
+            title: 'Home'
+        },{
+            href: './cities',
+            title: 'Cities'
+        },{
+            href: './',
+            title: 'Login'
+        }
+    ];
+    const icons = [
+        {
+            href: 'https://www.instagram.com/',
+            classBootstrap: 'bi bi-instagram my-5'
+        },{
+            href: 'https://facebook.com/',
+            classBootstrap: 'bi bi-facebook'
+        },{
+            href: 'https://web.whatsapp.com/',
+            classBootstrap: 'bi bi-whatsapp'
+        },{
+            href: 'https://www.tiktok.com/',
+            classBootstrap: 'bi bi-tiktok'
+        }
+    ];
+
     return (
         <>
             <div className='row d-flex flex-wrap mt-2 mb-3 align-items-start container' id='footerColumns'>
                 <div className='col d-flex flex-column justify-content-evenly aling-items-center'>
                     <span>Attendance</span>
-                    <Anchor href={'./'} title={'Contact'} />
-                    
-                    <Anchor href={'./'} title={'Legal Information'} />
-                    
-                    <Anchor href={'./'} title={'Privacy Policy'} />
-                    
-                    <Anchor href={'./'} title={'Support'} />
+                    {attendance.map((link, index) => <Anchor key={index} href={link.href} title={link.title} />)}
                 </div>
 
                 <div className='col-12 col-sm d-flex flex-column justify-content-evenly aling-items-center'>
                     <span>More</span>
-                    <Anchor href={'./'} title={'Home'} />
-
-                    <Anchor href={'./'} title={'Cities'} />
-
-                    <Anchor href={'./'} title={'Login'} />
+                    {menu.map((link, index) => <Anchor key={index} href={link.href} title={link.title} />)}
                 </div>
                 
                 <div className='col d-flex flex-wrap justify-content-evenly aling-items-center my-auto'>
-                    <IconSocial href={'https://www.instagram.com/'} classBootstrap={'bi bi-instagram my-5'} />
-
-                    <IconSocial href={'https://facebook.com/'} classBootstrap={'bi bi-facebook'} />
-
-                    <IconSocial href={'https://web.whatsapp.com/'} classBootstrap={'bi bi-whatsapp'} />
-
-                    <IconSocial href={'https://www.tiktok.com/'} classBootstrap={'bi bi-tiktok'} />
+                    {icons.map((icon, index) => <IconSocial key={index} href={icon.href} classBootstrap={icon.classBootstrap} />)}
                 </div>
             </div>
 

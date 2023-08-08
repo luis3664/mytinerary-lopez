@@ -1,4 +1,3 @@
-import './anchor.css'
 import { Link as LinkReact } from 'react-router-dom'
 
 const Anchor = ({href, title}) => {
