@@ -1,10 +1,13 @@
-import React from 'react'
+import { Link as LinkReact } from 'react-router-dom'
 
 const IconSocial = ({href, classBootstrap}) => {
     return (
-        <a href={href} target='_blank'>
+        <LinkReact to={href} target='_blank'>
             <i className={classBootstrap}></i>
-        </a>
+        </LinkReact>
+        // <a href={href} target='_blank'>
+        //     <i className={classBootstrap}></i>
+        // </a>
     )
 }
 

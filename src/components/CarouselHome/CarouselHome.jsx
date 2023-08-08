@@ -22,26 +22,24 @@ const CarouselHome = () => {
             name: 'Loading...'
         }
     ];
-    
+
     function makeSlides(array) {
         let slidesTotal = [];
-        let arrayAux = [];
-
-        for (let i = 0; i < array.length; i++) {
-            if (i % 4 === 0 && i !== 0) {
-                slidesTotal.push(arrayAux);
-                arrayAux = [];
-            }
-            arrayAux.push(array[i]);
-        }
-
-        if (arrayAux.length > 3 && slidesTotal.length < 10) {
-            slidesTotal.push(arrayAux);
-        }
+        let slideAux;
+        let i = 0;
         
-        return slidesTotal;
-    };
+        while (i < array.length) {
+            slideAux = array.slice(i, i+4);
+            
+            i += 4;
 
+            if (slideAux.length == 4) {slidesTotal.push(slideAux)}
+            else{break};
+        }
+
+        return slidesTotal;
+    }
+    
     const nextSlide = () => {
         if (indexSlide == slides.length - 1) {
             setIndexSlide(0)
@@ -66,15 +64,15 @@ const CarouselHome = () => {
         if (slides.length >= 1) {
             let intervalId = setInterval(() => {
                 nextSlide()
-            }, 4000);
+            }, 4500);
     
             return () => {clearInterval(intervalId)}
         }
-    }, [indexSlide])
+    }, [indexSlide, slides])
 
     return (
         <div className='carousel indexSlide px-5 d-flex justify-content-center align-items-center'>
-            <CarouselSlide array={slides.length > 0 ? (slides[indexSlide]):(slideLoading)} />
+            <CarouselSlide array={slides.length > 0 ? slides[indexSlide]:slideLoading} />
 
             <button className='carousel-control-prev' onClick={prevSlide} type='button'>
                 <span className='carousel-control-prev-icon' aria-hidden='true'></span>

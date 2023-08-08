@@ -1,8 +1,9 @@
 import './anchor.css'
+import { Link as LinkReact } from 'react-router-dom'
 
 const Anchor = ({href, title}) => {
     return (
-        <a href={href} className='text-decoration-none'>{title}</a>
+        <LinkReact to={href} className='text-decoration-none'>{title}</LinkReact>
     )
 }
 
