@@ -27,7 +27,7 @@ const Footer = () => {
             href: './cities',
             title: 'Cities'
         },{
-            href: './',
+            href: './login',
             title: 'Login'
         }
     ];
