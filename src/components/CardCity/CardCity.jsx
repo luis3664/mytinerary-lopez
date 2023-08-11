@@ -1,0 +1,26 @@
+import './cardCity.css'
+import { Link as LinkReact } from 'react-router-dom'
+
+const CardCity = ({name, country, lang, coin, img, href}) => {
+    return (
+        <LinkReact to={href} className='card-city d-flex justify-content-evenly align-items-center m-2'>
+            <div className='card__face card__face--front'>
+                <figure className='w-100 h-100'>
+                    <img src={img} className='img-fluid w-100 h-100' alt={name} />
+                </figure>
+                <span className='city-name'>{name}</span>
+            </div>
+
+            <div className='card__face card__face--back d-flex p-3 flex-column justify-content-evenly align-items-center'>
+                <div className='w-100 h-100 d-flex p-3 flex-column justify-content-evenly align-items-center'>
+                    <p className='text-center'>City: {name}</p>
+                    <p className='text-center'>Country: {country}</p>
+                    <p className='text-center'>Language: {lang}</p>
+                    <p className='text-center'>Currency: {coin}</p>
+                </div>
+            </div>
+        </LinkReact>
+    )
+}
+
+export default CardCity

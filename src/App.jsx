@@ -3,7 +3,7 @@ import LayoutMain from './layouts/LayoutMain/LayoutMain'
 import Home from './pages/Home/Home'
 import Cities from './pages/Cities/Cities'
 import Error404 from './pages/Error404/Error404'
-import CitieFull from './pages/CitieFull/CitieFull'
+import CityFull from './pages/CityFull/CityFull'
 import Login from './pages/Login/Login'
 import { RouterProvider, createBrowserRouter } from 'react-router-dom'
 
@@ -19,8 +19,8 @@ const router = createBrowserRouter([
         path:'/cities',
         element: <Cities />
       },{
-        path:'/citie/:id',
-        element: <CitieFull />
+        path:'/city/:id',
+        element: <CityFull />
       },{
         path:'/login',
         element: <Login />

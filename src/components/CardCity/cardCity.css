@@ -1,0 +1,68 @@
+.card-city {
+    width: 350px;
+    height: 280px;
+    box-shadow: 6px 6px 2px black;
+    border: 2px solid rgb(2, 2, 2);
+    transform-style: preserve-3d;
+    transition: transform .5s ease-in-out;
+}
+
+.card-city:hover {
+    transform: rotateY(180deg);
+    box-shadow: -6px 6px 2px black;
+}
+
+.city-name {
+    font-weight: bold;
+    font-size: 2.2rem;
+    color: rgb(228, 188, 115);
+    text-shadow: 1px 1px 0px rgb(0, 0, 0), -1px -1px 0px rgb(0, 0, 0);
+    position: absolute;
+    left: 5%;
+}
+
+.card-city figure,
+.card-city img {
+    object-fit: cover;
+    position: absolute;
+}
+
+.card__face {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+}
+
+.card__face--front {
+    background-color: #fff;
+}
+
+.card__face--back p {
+    font-weight: bold;
+    font-family: 'Dancing Script', cursive;
+    font-size: 1.5rem;
+    color: rgb(0, 0, 0);
+}
+
+.card__face--back {
+    transform: rotateY(180deg);
+    background-color: #f7f9c7;
+    background-image: url('../../../public/backgroundTinerary.jpg');
+    background-image: url("../public/postCard.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: top;
+}
+
+.card__face--back div {
+    background-color: #f5f6df;
+}
+
+@media (max-width: 376px) {
+    .card-city {
+        width: 250px;
+        height: 180px;
+    }
+}

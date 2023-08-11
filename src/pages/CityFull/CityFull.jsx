@@ -1,11 +1,11 @@
-import './citieFull.css'
+import './cityFull.css'
 import Section from '../../layouts/section/Section'
 import ImgUnderConst from '../../components/ImgUnderConst/ImgUnderConst'
 
-const CitieFull = () => {
+const CityFull = () => {
     return (
         <Section>
-            <h2 className='text-center cities-title'>CitieFull</h2>
+            <h2 className='text-center cities-title'>CityFull</h2>
             <article className='d-flex justify-content-center align-items-center'>
                 <ImgUnderConst />
             </article>
@@ -13,4 +13,4 @@ const CitieFull = () => {
     )
 }
 
-export default CitieFull
+export default CityFull
