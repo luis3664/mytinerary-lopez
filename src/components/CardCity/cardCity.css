@@ -66,3 +66,11 @@
         height: 180px;
     }
 }
+
+@media (max-width: 769px) {
+    .card-city {
+        width: 300px;
+        height: 230px;
+        ;
+    }
+}
