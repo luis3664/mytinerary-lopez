@@ -4,3 +4,58 @@
     color: rgb(228, 188, 115);
     text-shadow: 1px 1px 0px rgb(0, 0, 0), -1px -1px 0px rgb(0, 0, 0);
 }
+
+.waiting {
+    height: 50vh;
+    width: 90%;
+    border: 2px solid rgb(2, 2, 2);
+    background-image: url("/wait.jpeg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+.search-bar {
+    color: #cd821a;
+    font-weight: bolder;
+    font-size: 1.5rem;
+    text-align: center;
+    text-shadow: 1px 1px 0px rgb(0, 0, 0), -1px -1px 0px rgb(0, 0, 0);
+    border: none;
+    border-radius: 1rem;
+    width: 100%;
+    height: 45px;
+    outline-style: none;
+}
+
+.search-bar::placeholder {
+    color: #cd821a;
+}
+
+.container-searcher {
+    background-color: #ffffff;
+    border-radius: 1rem;
+}
+
+.container-searcher i {
+    color: #cd821a;
+    font-size: 28px;
+    font-weight: bolder;
+    text-shadow: 1px 1px 0px rgb(0, 0, 0), -1px -1px 0px rgb(0, 0, 0);
+}
+
+.form-searcher {
+    width: 50%;
+}
+
+@media (max-width:1800px) {
+    .form-searcher {
+        width: 60%;
+    }
+}
+@media (max-width:1025px) {
+    .form-searcher {
+        width: 85%;
+    }
+}

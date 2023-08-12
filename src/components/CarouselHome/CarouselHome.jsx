@@ -1,7 +1,7 @@
 import './carouselHome.css'
+import axios from 'axios'
 import { useEffect, useState } from 'react'
 import CarouselSlide from '../CarouselSlide/CarouselSlide'
-import cities from '../../assets/data/data'
 
 const CarouselHome = () => {
 
@@ -23,6 +23,17 @@ const CarouselHome = () => {
         }
     ];
 
+    const urlAPI = '/data.json';
+
+    async function getData(url) {
+        try {
+            const responseJson = await axios.get(url);
+            setSlides(makeSlides(responseJson.data.cities));
+        } catch (error) {
+            console.log(error);
+        }
+    };
+
     function makeSlides(array) {
         let slidesTotal = [];
         let slideAux;
@@ -38,7 +49,7 @@ const CarouselHome = () => {
         }
 
         return slidesTotal;
-    }
+    };
     
     const nextSlide = () => {
         if (indexSlide == slides.length - 1) {
@@ -57,7 +68,7 @@ const CarouselHome = () => {
     };
     
     useEffect(() => {
-        setSlides(makeSlides(cities));
+        getData(urlAPI);
     }, []);
 
     useEffect(() => {

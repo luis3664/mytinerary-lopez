@@ -2,7 +2,7 @@
     "cities": [
         {
             "img": "./cities/cancun.jpeg",
-            "name": "Cancún",
+            "name": "Cancun",
             "lang": "Spanish",
             "country": "Mexico",
             "coin": "Mexican Peso"
@@ -37,7 +37,7 @@
         },
         {
             "img": "./cities/paris.jpg",
-            "name": "París",
+            "name": "Paris",
             "lang": "French",
             "country": "France",
             "coin": "Euro"
@@ -52,20 +52,20 @@
         {
             "img": "./cities/miami.jpeg",
             "name": "Miami",
-            "lang": "",
+            "lang": "English",
             "country": "USA",
             "coin": "USD Dollar"
         },
         {
             "img": "./cities/ibiza.jpeg",
             "name": "Ibiza",
-            "lang": "Spanish and Catalan",
+            "lang": "Spanish",
             "country": "Spain",
             "coin": "Euro"
         },
         {
             "img": "./cities/dubai.jpg",
-            "name": "Dubái",
+            "name": "Dubai",
             "lang": "Arab",
             "country": "Arab Emirates",
             "coin": "Arab Dirham"
@@ -93,7 +93,7 @@
         },
         {
             "img": "./cities/bogota.jpg",
-            "name": "Bogotá",
+            "name": "Bogota",
             "lang": "Spanish",
             "country": "Colombia",
             "coin": "Colombian Peso"
