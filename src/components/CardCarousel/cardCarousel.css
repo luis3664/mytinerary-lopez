@@ -2,7 +2,7 @@
     background-color: rgb(255, 254, 254);
     width: 280px;
     height: 350px;
-    box-shadow: 6px 6px 2px black;
+    box-shadow: 6px 6px 2px #0000008c;
     transition: 1s;
     margin: 3px;
     padding: 15px 15px 0px 15px;
@@ -22,7 +22,7 @@
 
 .cardCarousel:hover {
     transform: translate(-0.5rem, -0.5rem);
-    box-shadow: 6px 6px 2px 0.4rem black;
+    box-shadow: 6px 6px 2px 0.4rem #0000008c;
 }
 
 .cardCarousel p {
@@ -35,7 +35,7 @@
 @media (min-width:0px) and (max-width:375px) {
     .cardCarousel:hover {
         transform: translate(-0.23rem, -0.23rem) !important;
-        box-shadow: 4px 4px 1.5px 0.4rem black !important;
+        box-shadow: 4px 4px 1.5px 0.4rem #0000008c !important;
     }
 }
 

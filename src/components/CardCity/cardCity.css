@@ -1,7 +1,7 @@
 .card-city {
     width: 350px;
     height: 280px;
-    box-shadow: 6px 6px 2px black;
+    box-shadow: 6px 6px 2px #0000008c;
     border: 2px solid rgb(2, 2, 2);
     transform-style: preserve-3d;
     transition: transform .5s ease-in-out;
@@ -9,13 +9,13 @@
 
 .card-city:hover {
     transform: rotateY(180deg);
-    box-shadow: -6px 6px 2px black;
+    box-shadow: -6px 6px 2px #0000008c;
 }
 
 .city-name {
     font-weight: bold;
     font-size: 2.2rem;
-    color: rgb(228, 188, 115);
+    color: #e4bc73;
     text-shadow: 1px 1px 0px rgb(0, 0, 0), -1px -1px 0px rgb(0, 0, 0);
     position: absolute;
     left: 5%;
@@ -48,12 +48,9 @@
 .card__face--back {
     transform: rotateY(180deg);
     background-color: #f7f9c7;
-    background-image: url('../../../public/backgroundTinerary.jpg');
-    background-image: url("../public/postCard.jpg");
+    background-image: url("../../../public/postCard.jpg");
     background-position: center;
-    background-repeat: no-repeat;
     background-size: cover;
-    background-position: top;
 }
 
 .card__face--back div {

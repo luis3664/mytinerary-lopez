@@ -4,7 +4,7 @@
     border-radius: 0.7rem;
     padding: 1.25em;
     border: solid 2px black;
-    box-shadow: 3px 3px 2px black;
+    box-shadow: 3px 3px 2px #0000008c;
     transition: 600ms;
 }
 
@@ -18,7 +18,7 @@
 .carousel-control-prev-icon:active,
 .carousel-control-next-icon:active {
     transform: translate(0.4rem, 0.4rem);
-    box-shadow: 3px 3px 2px -0.3rem black;
+    box-shadow: 3px 3px 2px -0.3rem #0000008c;
 }
 
 #carouselMain {

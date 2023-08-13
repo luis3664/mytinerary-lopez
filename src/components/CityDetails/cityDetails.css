@@ -1,0 +1,61 @@
+#card-details {
+    min-width: 280px;
+    max-width: 90%;
+    min-height: 60vh;
+    background-image: url('../../../public/discover.jpg');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    box-shadow: 6px 6px 2px #0000008c;
+}
+
+.cities-title2 {
+    font-weight: bold;
+    font-size: 2.2rem;
+    color: #cc892d;
+    text-shadow: 1px 1px 0px rgb(0, 0, 0), -1px -1px 0px rgb(0, 0, 0);
+}
+
+#detailsText {
+    border: solid 2px #cc892d;
+    min-height: 100%;
+    margin: 1rem;
+    background-color: #ffffff99;
+}
+
+#detailsText p {
+    font-size: 18px;
+    font-weight: bolder;
+}
+
+#card-details img {
+    object-fit: cover;
+    border: solid 2px #cc892d;
+    box-shadow: 6px 6px 2px #0000008c;
+}
+
+#figure {
+    height: 300px;
+    min-width: 50%;
+    margin: 1rem;
+}
+
+@media (min-width:2000px) {
+    #figure {
+        height: 550px;
+    }
+
+    #detailsText {
+        height: 550px;
+    }
+
+    #detailsText p {
+        transform: none;
+        font-size: 30px;
+    }
+
+    #detailsText h2 {
+        transform: none;
+        font-size: 55px;
+    }
+}

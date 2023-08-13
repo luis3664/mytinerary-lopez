@@ -1,105 +1,120 @@
 {
     "cities": [
         {
-            "img": "./cities/cancun.jpeg",
+            "id": 0,
+            "img": "/cities/cancun.jpeg",
             "name": "Cancun",
             "lang": "Spanish",
             "country": "Mexico",
             "coin": "Mexican Peso"
         },
         {
-            "img": "./cities/barcelona.jpeg",
+            "id": 1,
+            "img": "/cities/barcelona.jpeg",
             "name": "Barcelona",
             "lang": "Spanish",
             "country": "Spain",
             "coin": "EURO"
         },
         {
-            "img": "./cities/cairo.jpg",
+            "id": 2,
+            "img": "/cities/cairo.jpg",
             "name": "Cairo",
             "lang": "Arab",
             "country": "Egypt",
             "coin": "Egyptian pound"
         },
         {
-            "img": "./cities/newYork.jpeg",
+            "id": 3,
+            "img": "/cities/newYork.jpeg",
             "name": "New York",
             "lang": "English",
             "country": "USA",
             "coin": "Dollar USD"
         },
         {
-            "img": "./cities/rioJaneiro.webp",
+            "id": 4,
+            "img": "/cities/rioJaneiro.webp",
             "name": "Rio de Janeiro",
             "lang": "Portuguese",
             "country": "Brazil",
             "coin": "Brazilian Real"
         },
         {
-            "img": "./cities/paris.jpg",
+            "id": 5,
+            "img": "/cities/paris.jpg",
             "name": "Paris",
             "lang": "French",
             "country": "France",
             "coin": "Euro"
         },
         {
-            "img": "./cities/tokyo.jpeg",
+            "id": 6,
+            "img": "/cities/tokyo.jpeg",
             "name": "Tokyo",
             "lang": "Japanese",
             "country": "Japon",
             "coin": "Yen"
         },
         {
-            "img": "./cities/miami.jpeg",
+            "id": 7,
+            "img": "/cities/miami.jpeg",
             "name": "Miami",
             "lang": "English",
             "country": "USA",
             "coin": "USD Dollar"
         },
         {
-            "img": "./cities/ibiza.jpeg",
+            "id": 8,
+            "img": "/cities/ibiza.jpeg",
             "name": "Ibiza",
             "lang": "Spanish",
             "country": "Spain",
             "coin": "Euro"
         },
         {
-            "img": "./cities/dubai.jpg",
+            "id": 9,
+            "img": "/cities/dubai.jpg",
             "name": "Dubai",
             "lang": "Arab",
             "country": "Arab Emirates",
             "coin": "Arab Dirham"
         },
         {
-            "img": "./cities/londres.jpg",
+            "id": 10,
+            "img": "/cities/londres.jpg",
             "name": "Londres",
             "lang": "English",
             "country": "England",
             "coin": "Pound Sterling"
         },
         {
-            "img": "./cities/istanbul.jpeg",
+            "id": 11,
+            "img": "/cities/istanbul.jpeg",
             "name": "Istanbul",
             "lang": "Turkish",
             "country": "Turkey",
             "coin": "Turkish Lira"
         },
         {
-            "img": "./cities/mexicoDF.jpg",
+            "id": 12,
+            "img": "/cities/mexicoDF.jpg",
             "name": "Mexico DF",
             "lang": "Spanish",
             "country": "Mexico",
             "coin": "Mexican Peso"
         },
         {
-            "img": "./cities/bogota.jpg",
+            "id": 13,
+            "img": "/cities/bogota.jpg",
             "name": "Bogota",
             "lang": "Spanish",
             "country": "Colombia",
             "coin": "Colombian Peso"
         },
         {
-            "img": "./cities/buenosAires.jpeg",
+            "id": 14,
+            "img": "/cities/buenosAires.jpeg",
             "name": "Buenos Aires",
             "lang": "Spanish",
             "country": "Argentina",

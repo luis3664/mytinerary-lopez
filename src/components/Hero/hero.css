@@ -7,6 +7,8 @@
     background-position: top;
     margin-top: 7vh;
     margin-bottom: 15vh;
+    box-shadow: 6px 6px 2px #0000008c;
+    position: relative;
 }
 
 #heroCard h2 {
@@ -30,4 +32,22 @@
     animation: happiness 0.4s;
     animation-iteration-count: infinite;
     animation-direction: alternate;
+}
+
+.envelope {
+    background-color: #cc892d;
+    height: 100%;
+    width: 75vw;
+    box-shadow: 6px 6px 2px #0000008c;
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    z-index: -1;
+}
+
+@media (min-width: 500px) {
+    .envelope {
+        top: 35px;
+        left: 35px;
+    }
 }

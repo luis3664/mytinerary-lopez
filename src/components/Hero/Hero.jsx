@@ -22,6 +22,7 @@ const Hero = () => {
 
                     <CallToAction />
                 </div>
+                <div className='envelope'></div>
             </article>
         </section>
     )

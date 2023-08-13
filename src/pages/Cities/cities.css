@@ -24,7 +24,7 @@
     text-shadow: 1px 1px 0px rgb(0, 0, 0), -1px -1px 0px rgb(0, 0, 0);
     border: none;
     border-radius: 1rem;
-    width: 100%;
+    width: 88%;
     height: 45px;
     outline-style: none;
 }
@@ -43,6 +43,7 @@
     font-size: 28px;
     font-weight: bolder;
     text-shadow: 1px 1px 0px rgb(0, 0, 0), -1px -1px 0px rgb(0, 0, 0);
+    cursor: pointer;
 }
 
 .form-searcher {

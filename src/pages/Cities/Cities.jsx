@@ -51,14 +51,14 @@ const Cities = () => {
 
             <form onSubmit={preventSubmit} className='form-searcher mb-5'>
                 <fieldset className='d-flex justify-content-center align-items-center container-searcher'>
-                    <i class="bi bi-search px-3 py-1"></i>
+                    <i className="bi bi-search align-self-start pe-3 py-1"></i>
                     <input className='search-bar' onChange={lisentSearcher} type='text' placeholder='Type to search...' value={searcher} />
                 </fieldset>
             </form>
 
             <article className='d-flex justify-content-evenly align-items-center flex-wrap'>
                 {
-                    cities.length > 0 ? cities.map((city, index) => <CardCity key={index} name={city.name} country={city.country} lang={city.lang} coin={city.coin} img={city.img} href={'/city/' + city.name} />) :
+                    cities.length > 0 ? cities.map((city) => <CardCity key={city.id} name={city.name} country={city.country} lang={city.lang} coin={city.coin} img={city.img} href={'/city/' + city.id} />) :
                         <div className='waiting d-flex justify-content-center align-items-center m-3'>
                             <h3 className='cities-title text-center'>We did not find the destination you were looking for.</h3>
                         </div>
