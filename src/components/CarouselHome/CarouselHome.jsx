@@ -23,12 +23,14 @@ const CarouselHome = () => {
         }
     ];
 
-    const urlAPI = '/data.json';
+    const urlAPI = 'http://localhost:4000/api/cities/';
 
     async function getData(url) {
         try {
-            const responseJson = await axios.get(url);
-            setSlides(makeSlides(responseJson.data.cities));
+            await axios.get(url)
+            .then((res) => {
+                setSlides(makeSlides(res.data.response));
+            }).catch();
         } catch (error) {
             console.log(error);
         }

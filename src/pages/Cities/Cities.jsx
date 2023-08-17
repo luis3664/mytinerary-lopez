@@ -5,19 +5,8 @@ import CardCity from '../../components/CardCity/CardCity'
 import { useEffect, useState } from 'react'
 
 const Cities = () => {
-    let [cities, setCities] = useState([]);
-    let [citiesDb, setCitiesDb] = useState([]);
+    let [cities, setCities] = useState([{_id: '0', name: 'Mytinerary', lang: 'Travellers', country: 'World', currency: 'Dreams', img: '/discover.jpg'}]);
     let [searcher, setSearcher] = useState('');
-
-    async function getData(url) {
-        try {
-            const responseJson = await axios.get(url);
-            setCities(responseJson.data.cities);
-            setCitiesDb(responseJson.data.cities);
-        } catch (error) {
-            console.log(error);
-        }
-    };
 
     const lisentSearcher = (event) => {
         setSearcher(event.target.value);
@@ -27,23 +16,22 @@ const Cities = () => {
         event.preventDefault();
     };
 
-    function filter() {
-        setCities(citiesDb);
-
-        if (searcher.length != 0) {
-            setCities(cities.filter(city => city.name.toLowerCase().startsWith(searcher.toLocaleLowerCase())));
+    async function filter(url) {
+        try {
+            await axios.get(url)
+            .then((res) => {
+                setCities(res.data.response.filter(city => city.name.toLowerCase().startsWith(searcher.toLocaleLowerCase().trim())));
+            }).catch();
+        } catch (error) {
+            console.log(error);
         }
-    }
+    };
 
-    const urlAPI = '/data.json';
-
-    useEffect(() => {
-        getData(urlAPI);
-    }, []);
+    const urlAPI = 'http://localhost:4000/api/cities/';
 
     useEffect(() => {
-        filter();
-    }, [searcher])
+        filter(urlAPI);
+    }, [searcher]);
 
     return (
         <Section extraClass='my-5'>
@@ -58,7 +46,7 @@ const Cities = () => {
 
             <article className='d-flex justify-content-evenly align-items-center flex-wrap'>
                 {
-                    cities.length > 0 ? cities.map((city) => <CardCity key={city.id} name={city.name} country={city.country} lang={city.lang} coin={city.coin} img={city.img} href={'/city/' + city.id} />) :
+                    cities.length > 0 ? cities.map((city) => <CardCity key={city._id} name={city.name} country={city.country} lang={city.lang} currency={city.currency} img={city.img} href={'/city/' + city._id} />) :
                         <div className='waiting d-flex justify-content-center align-items-center m-3'>
                             <h3 className='cities-title text-center'>We did not find the destination you were looking for.</h3>
                         </div>

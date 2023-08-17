@@ -4,14 +4,16 @@ import axios from 'axios'
 import { useEffect, useState } from 'react'
 
 const CityDetails = () => {
-    let [city, setCity] = useState({});
+    let [city, setCity] = useState({name: 'Mytinerary', lang: 'Travellers', country: 'World', currency: 'Dreams', img: '/backgroundTinerary.jpg'});
     let id = useParams().id;
-    const urlAPI = '/data.json';
+    const urlAPI = 'http://localhost:4000/api/cities/';
 
     async function getData(url, id) {
         try {
-            const responseJson = await axios.get(url);
-            setCity(responseJson.data.cities.find(item => item.id == id));
+            await axios.get(url + id)
+            .then((res) => {
+                setCity(res.data.response);
+            }).catch();
         } catch (error) {
             console.log(error);
         }
@@ -28,8 +30,8 @@ const CityDetails = () => {
             </figure>
 
             <div className='col-lg-5 col-12 p-4 d-flex flex-column justify-content-center' id='detailsText'>
-                <h2 className='cities-title2'>{city.name}</h2>
-                <p className='d-flex flex-wrap'>Discover the beauty of {city.name}, where {city.lang} is spoken, located in the beautiful country of {city.country}, where the {city.coin} is used.</p>
+                <h2 className='cities-title2'>{city.name == 'Mytinerary' ? 'Loading...' : city.name}</h2>
+                <p className='d-flex flex-wrap'>Discover the beauty of {city.name}, where {city.lang} is spoken, located in the beautiful country of {city.country}, where the {city.currency} is used.</p>
                 <p>Discover its culture, its people and its gastronomy.</p>
             </div>
         </article>

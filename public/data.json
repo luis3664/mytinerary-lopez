@@ -6,7 +6,7 @@
             "name": "Cancun",
             "lang": "Spanish",
             "country": "Mexico",
-            "coin": "Mexican Peso"
+            "currency": "Mexican Peso"
         },
         {
             "id": 1,
@@ -14,7 +14,7 @@
             "name": "Barcelona",
             "lang": "Spanish",
             "country": "Spain",
-            "coin": "EURO"
+            "currency": "EURO"
         },
         {
             "id": 2,
@@ -22,7 +22,7 @@
             "name": "Cairo",
             "lang": "Arab",
             "country": "Egypt",
-            "coin": "Egyptian pound"
+            "currency": "Egyptian pound"
         },
         {
             "id": 3,
@@ -30,7 +30,7 @@
             "name": "New York",
             "lang": "English",
             "country": "USA",
-            "coin": "Dollar USD"
+            "currency": "Dollar USD"
         },
         {
             "id": 4,
@@ -38,7 +38,7 @@
             "name": "Rio de Janeiro",
             "lang": "Portuguese",
             "country": "Brazil",
-            "coin": "Brazilian Real"
+            "currency": "Brazilian Real"
         },
         {
             "id": 5,
@@ -46,7 +46,7 @@
             "name": "Paris",
             "lang": "French",
             "country": "France",
-            "coin": "Euro"
+            "currency": "Euro"
         },
         {
             "id": 6,
@@ -54,7 +54,7 @@
             "name": "Tokyo",
             "lang": "Japanese",
             "country": "Japon",
-            "coin": "Yen"
+            "currency": "Yen"
         },
         {
             "id": 7,
@@ -62,7 +62,7 @@
             "name": "Miami",
             "lang": "English",
             "country": "USA",
-            "coin": "USD Dollar"
+            "currency": "USD Dollar"
         },
         {
             "id": 8,
@@ -70,7 +70,7 @@
             "name": "Ibiza",
             "lang": "Spanish",
             "country": "Spain",
-            "coin": "Euro"
+            "currency": "Euro"
         },
         {
             "id": 9,
@@ -78,7 +78,7 @@
             "name": "Dubai",
             "lang": "Arab",
             "country": "Arab Emirates",
-            "coin": "Arab Dirham"
+            "currency": "Arab Dirham"
         },
         {
             "id": 10,
@@ -86,7 +86,7 @@
             "name": "Londres",
             "lang": "English",
             "country": "England",
-            "coin": "Pound Sterling"
+            "currency": "Pound Sterling"
         },
         {
             "id": 11,
@@ -94,7 +94,7 @@
             "name": "Istanbul",
             "lang": "Turkish",
             "country": "Turkey",
-            "coin": "Turkish Lira"
+            "currency": "Turkish Lira"
         },
         {
             "id": 12,
@@ -102,7 +102,7 @@
             "name": "Mexico DF",
             "lang": "Spanish",
             "country": "Mexico",
-            "coin": "Mexican Peso"
+            "currency": "Mexican Peso"
         },
         {
             "id": 13,
@@ -110,7 +110,7 @@
             "name": "Bogota",
             "lang": "Spanish",
             "country": "Colombia",
-            "coin": "Colombian Peso"
+            "currency": "Colombian Peso"
         },
         {
             "id": 14,
@@ -118,7 +118,7 @@
             "name": "Buenos Aires",
             "lang": "Spanish",
             "country": "Argentina",
-            "coin": "Argentin Peso"
+            "currency": "Argentin Peso"
         }
     ]
 }
