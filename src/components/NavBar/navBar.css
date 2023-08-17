@@ -1,11 +1,8 @@
 .navbar {
     min-height: 18vh;
-    background: rgb(140,216,217);
-    background: linear-gradient(360deg, rgba(140,216,217,0.4) 0%, rgba(233,204,144,0.8) 100%);
 }
 
 .menu a {
-    text-decoration: none;
     font-size: 1.7rem;
     font-weight: 1000;
     color: rgb(235, 199, 132);
@@ -33,3 +30,9 @@ h1 {
     margin: 0;
     padding: 0;
 }
+
+/* #userPhoto img {
+    height: 60px;
+    width: 60px;
+    box-shadow: 3px 3px 2px black;
+} */

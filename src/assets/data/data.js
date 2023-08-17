@@ -1,13 +1,13 @@
 const cities = [
     {
         img: "./cities/cancun.jpeg",
-        name: "Cancun"
+        name: "Cancún"
     },{
         img: "./cities/barcelona.jpeg",
         name: "Barcelona"
     },{
         img: "./cities/bogota.jpg",
-        name: "Bogota"
+        name: "Bogotá"
     },{
         img: "./cities/newYork.jpeg",
         name: "New York"
@@ -16,7 +16,7 @@ const cities = [
         name: "Rio de Janeiro"
     },{
         img: "./cities/paris.jpg",
-        name: "Paris"
+        name: "París"
     },{
         img: "./cities/tokyo.jpeg",
         name: "Tokyo"

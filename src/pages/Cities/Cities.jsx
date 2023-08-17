@@ -1,8 +1,11 @@
-import React from 'react'
+import './cities.css'
 
 const Cities = () => {
     return (
-        <div>cities</div>
+        <section className='section-cities'>
+            <h2 className='text-center cities-title'>Cities</h2>
+            <article></article>
+        </section>
     )
 }
 

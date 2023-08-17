@@ -20,3 +20,17 @@
     transform: translate(0.4rem, 0.4rem);
     box-shadow: 3px 3px 2px -0.3rem black;
 }
+
+#carouselMain {
+    min-height: 20vh;
+    min-width: 90vw;
+    max-width: 99vw;
+    margin-bottom: 10vh;
+}
+
+.title-carousel {
+    font-weight: bold;
+    font-size: 3rem;
+    color: rgb(228, 188, 115);
+    text-shadow: 1.5px 1.5px 0px rgb(0, 0, 0), -1.5px -1.5px 0px rgb(0, 0, 0);
+}

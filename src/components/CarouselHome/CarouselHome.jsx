@@ -5,82 +5,90 @@ import cities from '../../assets/data/data'
 
 const CarouselHome = () => {
 
-    let [slide, setSlide] = useState(0);
-    let [slides, setSlides] = useState([[]]);
-    
+    let [indexSlide, setIndexSlide] = useState(0);
+    let [slides, setSlides] = useState([]);
+    let slideLoading = [
+        {
+            img: './trip.png',
+            name: 'Loading...'
+        },{
+            img: './trip.png',
+            name: 'Loading...'
+        },{
+            img: './trip.png',
+            name: 'Loading...'
+        },{
+            img: './trip.png',
+            name: 'Loading...'
+        }
+    ];
+
     function makeSlides(array) {
         let slidesTotal = [];
-        let arrayAux = [];
+        let slideAux;
+        let i = 0;
 
-        for (let i = 0; i < array.length; i++) {
-            if (i % 4 === 0 && i !== 0) {
-                slidesTotal.push(arrayAux);
-                arrayAux = [];
-            }
-            arrayAux.push(array[i]);
+        while (i < array.length) {
+            slideAux = array.slice(i, i+4);
+            
+            i += 4;
+
+            if (slideAux.length == 4) {slidesTotal.push(slideAux)}
+            else{break};
         }
 
-        if (arrayAux.length > 3 && slidesTotal.length < 10) {
-            slidesTotal.push(arrayAux);
-        }
-        
         return slidesTotal;
-    };
-
+    }
+    
     const nextSlide = () => {
-        if (slide == slides.length - 1) {
-            setSlide(0)
+        if (indexSlide == slides.length - 1) {
+            setIndexSlide(0)
         } else {
-            setSlide(slide + 1)
+            setIndexSlide(indexSlide + 1)
         }
     };
 
     const prevSlide = () => {
-        if (slide == 0) {
-            setSlide(slides.length - 1)
+        if (indexSlide == 0) {
+            setIndexSlide(slides.length - 1)
         } else {
-            setSlide(slide - 1)
+            setIndexSlide(indexSlide - 1)
         }
     };
-
+    
     useEffect(() => {
         setSlides(makeSlides(cities));
     }, []);
 
+    useEffect(() => {
+        if (slides.length >= 1) {
+            let intervalId = setInterval(() => {
+                nextSlide()
+            }, 4500);
+    
+            return () => {clearInterval(intervalId)}
+        }
+    }, [indexSlide, slides])
+
     return (
-        <div className='carousel slide px-5 d-flex justify-content-center align-items-center'>
-            <CarouselSlide>
-                {slides.length > 0 ? (
-                    slides[slide]
-                ):(
-                    [
-                        {
-                            img: './trip.png',
-                            name: 'Loading...'
-                        },{
-                            img: './trip.png',
-                            name: 'Loading...'
-                        },{
-                            img: './trip.png',
-                            name: 'Loading...'
-                        },{
-                            img: './trip.png',
-                            name: 'Loading...'
-                        }
-                    ]
-                )}
-            </CarouselSlide>
+        <section className='row' id='carouselMain'>
+                <h2 className='text-center title-carousel'>Popular Mytineraries</h2>
+                <article>
+                    <div className='carousel indexSlide px-5 d-flex justify-content-center align-items-center'>
+                        <CarouselSlide array={slides.length > 0 ? slides[indexSlide]:slideLoading} />
 
-            <button className='carousel-control-prev' onClick={prevSlide} type='button'>
-                <span className='carousel-control-prev-icon' aria-hidden='true'></span>
-                <span className='visually-hidden'>Previous</span>
-            </button>
+                        <button className='carousel-control-prev' onClick={prevSlide} type='button'>
+                            <span className='carousel-control-prev-icon' aria-hidden='true'></span>
+                            <span className='visually-hidden'>Previous</span>
+                        </button>
 
-            <button className='carousel-control-next' onClick={nextSlide} type='button'>
-                <span className='carousel-control-next-icon' aria-hidden='true'></span>
-                <span className='visually-hidden'>Next</span>
-            </button>
-        </div>
+                        <button className='carousel-control-next' onClick={nextSlide} type='button'>
+                            <span className='carousel-control-next-icon' aria-hidden='true'></span>
+                            <span className='visually-hidden'>Next</span>
+                        </button>
+                    </div>
+                </article>
+            </section>
     )
 }
 

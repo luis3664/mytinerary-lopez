@@ -12,13 +12,6 @@
     }
 }
 
-@media (min-width:0px) and (max-width:375px) {
-    .cardCitie:hover {
-        transform: translate(-0.23rem, -0.23rem) !important;
-        box-shadow: 4px 4px 1.5px 0.4rem black !important;
-    }
-}
-
 @media (min-width:0px) and (max-width:426px) {
     #imgHero {
         width: 180px;
@@ -35,8 +28,16 @@
 }
 
 @media (min-width:2000px) {
-    h3, p, a {
+    h2, p {
         transform: scale(1.3);
+    }
+
+    a {
+        font-size: 2.3rem !important;
+    }
+
+    #footerColumns i {
+        font-size: 90px !important;
     }
 
     h1, #logoTinerary {
