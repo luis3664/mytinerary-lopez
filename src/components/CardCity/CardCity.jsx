@@ -12,11 +12,12 @@ const CardCity = ({name, country, lang, currency, img, href}) => {
             </div>
 
             <LinkReact to={href} className='card__face card__face--back d-flex p-3 flex-column justify-content-evenly align-items-center text-decoration-none'>
-                <div className='w-100 h-100 d-flex p-3 flex-column justify-content-evenly align-items-center'>
-                    <p className='text-center'>City: {name}</p>
-                    <p className='text-center'>Country: {country}</p>
-                    <p className='text-center'>Language: {lang}</p>
-                    <p className='text-center'>Currency: {currency}</p>
+                <div className='w-100 h-100 d-flex p-3 flex-column justify-content-between align-items-center'>
+                    <p className='text-center m-0'>City: {name}</p>
+                    <p className='text-center m-0'>Country: {country}</p>
+                    <p className='text-center m-0'>Language: {lang}</p>
+                    <p className='text-center m-0'>Currency: {currency}</p>
+                    <p className='text-center m-0'>Click for more details.</p>
                 </div>
             </LinkReact>
         </div>

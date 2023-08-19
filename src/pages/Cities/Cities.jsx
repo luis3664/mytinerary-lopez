@@ -2,47 +2,74 @@ import './cities.css'
 import axios from 'axios'
 import Section from '../../layouts/section/Section'
 import CardCity from '../../components/CardCity/CardCity'
+import SearcherBar from '../../components/SearcherBar/SearcherBar'
+import ButtonsPage from '../../components/ButtonsPage/ButtonsPage'
 import { useEffect, useState } from 'react'
 
 const Cities = () => {
-    let [cities, setCities] = useState([{_id: '0', name: 'Mytinerary', lang: 'Travellers', country: 'World', currency: 'Dreams', img: '/discover.jpg'}]);
+    let [cities, setCities] = useState([{ _id: '0', name: 'Mytinerary', lang: 'Travellers', country: 'World', currency: 'Dreams', img: '/discover.jpg' }]);
     let [searcher, setSearcher] = useState('');
+    let [page, setPage] = useState(1);
+    let [slides, setSlides] =useState(0);
 
     const lisentSearcher = (event) => {
         setSearcher(event.target.value);
+
+        if (event.keyCode == 8 && searcher == '') {
+            getData(urlAPI, '', 1, 6)
+        }
     };
 
     const preventSubmit = (event) => {
         event.preventDefault();
+        setPage(1);
+        getData(urlAPI, searcher, 1, 6);
     };
 
-    async function filter(url) {
+    async function getData(url, string, ref, count) {
         try {
-            await axios.get(url)
-            .then((res) => {
-                setCities(res.data.response.filter(city => city.name.toLowerCase().startsWith(searcher.toLocaleLowerCase().trim())));
-            }).catch();
+            await axios.get(url + '?name=' + string + '&page=' + ref + '&items=' + count)
+                .then((res) => {
+                    setCities(res.data.response);
+
+                    if (slides == 0) {setSlides(res.data.count)};
+                }).catch();
+
         } catch (error) {
             console.log(error);
         }
     };
 
+    const search = () => {
+        getData(urlAPI, searcher, 1, 6);
+    };
+
+    const pagePrev = () => {
+        if (page == 1 && searcher == '') {
+            setPage(slides);
+        } else if (searcher == '') {
+            setPage(page - 1);
+        };
+    };
+    const pageNext = () => {
+        if (page == slides) {
+            setPage(1);
+        } else if (searcher == '') {
+            setPage(page + 1);
+        };
+    };
+
     const urlAPI = 'http://localhost:4000/api/cities/';
 
     useEffect(() => {
-        filter(urlAPI);
-    }, [searcher]);
+        getData(urlAPI, searcher, page, 6);
+    }, [page]);
 
     return (
         <Section extraClass='my-5'>
             <h2 className='text-center cities-title'>Find your destiny</h2>
-
-            <form onSubmit={preventSubmit} className='form-searcher mb-5'>
-                <fieldset className='d-flex justify-content-center align-items-center container-searcher'>
-                    <i className="bi bi-search align-self-start pe-3 py-1"></i>
-                    <input className='search-bar' onChange={lisentSearcher} type='text' placeholder='Type to search...' value={searcher} />
-                </fieldset>
-            </form>
+            
+            <SearcherBar submitF={preventSubmit} searchI={search} change={lisentSearcher} keyUp={lisentSearcher} searcher={searcher} />
 
             <article className='d-flex justify-content-evenly align-items-center flex-wrap'>
                 {
@@ -52,6 +79,8 @@ const Cities = () => {
                         </div>
                 }
             </article>
+            
+            <ButtonsPage prevF={pagePrev} nextF={pageNext} number={page} />
         </Section>
     )
 }

@@ -1,7 +1,7 @@
 import './carouselHome.css'
 import axios from 'axios'
-import { useEffect, useState } from 'react'
 import CarouselSlide from '../CarouselSlide/CarouselSlide'
+import { useEffect, useState } from 'react'
 
 const CarouselHome = () => {
 
@@ -76,7 +76,7 @@ const CarouselHome = () => {
     useEffect(() => {
         if (slides.length >= 1) {
             let intervalId = setInterval(() => {
-                nextSlide()
+                nextSlide();
             }, 4500);
     
             return () => {clearInterval(intervalId)}

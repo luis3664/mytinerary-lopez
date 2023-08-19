@@ -2,9 +2,11 @@ import './cityFull.css'
 import Section from '../../layouts/section/Section'
 import CityDetails from '../../components/CityDetails/CityDetails'
 import ImgUnderConst from '../../components/ImgUnderConst/ImgUnderConst'
-import { Link as LinkReact } from 'react-router-dom'
+import { Link as LinkReact, useLocation } from 'react-router-dom'
+import { useEffect } from 'react'
 
 const CityFull = () => {
+
     return (
         <Section>
             <h2 className='text-center cities-title my-3'>In search of the incredible</h2>
