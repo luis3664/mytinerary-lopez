@@ -1,9 +1,17 @@
 import './layoutMain.css'
-import NavBar from "../components/NavBar/NavBar"
-import Footer from "../components/Footer/Footer"
+import NavBar from "../../components/NavBar/NavBar"
+import Footer from "../../components/Footer/Footer"
 import { Outlet } from 'react-router-dom'
+import { useLocation } from 'react-router-dom'
+import { useEffect } from 'react'
 
 const LayoutMain = () => {
+    const { pathname } = useLocation();
+    
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, [pathname]);
+
     return (
         <>
             <header className='mx-0 container-fluid justify-content-center align-items-center' id='headerNav'>

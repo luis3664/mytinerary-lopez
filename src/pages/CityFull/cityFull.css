@@ -1,0 +1,21 @@
+#backButton {
+    position: fixed;
+    top: 47vh;
+    left: 2vw;
+}
+
+#backButton span {
+    padding-right: 20px;;
+}
+
+@media (min-width: 750px) {
+    #backButton {
+        top: 35vh;
+    }
+}
+
+@media (min-width: 2000px) {
+    #backButton span {
+        font-size: 20px !important;
+    }
+}

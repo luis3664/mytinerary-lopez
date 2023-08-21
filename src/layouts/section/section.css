@@ -1,0 +1,9 @@
+.section-style {
+    background: rgb(140,216,217);
+    background: linear-gradient(90deg, rgba(233,204,144,0.4) 0%, rgba(140, 195, 217, 0.8) 100%);
+    min-height: 20vh;
+    min-width: 90vw;
+    max-width: 99vw;
+    padding: 1rem;
+    border-radius: 1rem;
+}

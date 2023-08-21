@@ -1,31 +1,31 @@
-.cardCitie {
+.cardCarousel {
     background-color: rgb(255, 254, 254);
     width: 280px;
     height: 350px;
-    box-shadow: 6px 6px 2px black;
+    box-shadow: 6px 6px 2px #0000008c;
     transition: 1s;
     margin: 3px;
     padding: 15px 15px 0px 15px;
     border: 2px solid rgb(2, 2, 2);
 }
 
-.cardCitie figure {
+.cardCarousel figure {
     height: 85%;
     border: 2px solid rgb(2, 2, 2);
 }
 
-.cardCitie img {
+.cardCarousel img {
     height: 100%;
     width: 100%;
     object-fit: cover;
 }
 
-.cardCitie:hover {
+.cardCarousel:hover {
     transform: translate(-0.5rem, -0.5rem);
-    box-shadow: 6px 6px 2px 0.4rem black;
+    box-shadow: 6px 6px 2px 0.4rem #0000008c;
 }
 
-.cardCitie p {
+.cardCarousel p {
     font-family: 'Dancing Script', cursive;
     color: black;
     font-size: 30px;
@@ -33,14 +33,14 @@
 }
 
 @media (min-width:0px) and (max-width:375px) {
-    .cardCitie:hover {
+    .cardCarousel:hover {
         transform: translate(-0.23rem, -0.23rem) !important;
-        box-shadow: 4px 4px 1.5px 0.4rem black !important;
+        box-shadow: 4px 4px 1.5px 0.4rem #0000008c !important;
     }
 }
 
 @media (min-width:0px) and (max-width:426px) {
-    .cardCitie {
+    .cardCarousel {
         width: 180px;
         height: 230px;
         margin-top: 6px;

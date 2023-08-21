@@ -1,6 +1,6 @@
 #textFooter,
 #footerColumns a {
-    font-size: 30px;
+    font-size: 25px;
     font-weight: 600;
     color: #cd821a;
     text-shadow: 2px 0px rgba(28, 88, 115, 1);
@@ -15,11 +15,11 @@
 
 #footerColumns span {
     font-weight: bold;
-    font-size: 30px;
+    font-size: 25px;
     color: #cc892d;
     text-shadow: 1.5px 1.5px 0px rgb(0, 0, 0), -1.5px -1.5px 0px rgb(0, 0, 0);
 }
 
 #footerColumns i {
-    font-size: 65px;
+    font-size: 55px;
 }
