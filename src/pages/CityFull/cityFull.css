@@ -2,6 +2,9 @@
     position: fixed;
     top: 47vh;
     left: 2vw;
+    opacity: 1;
+    animation: shakeButton 2s;
+    animation-iteration-count: infinite;
 }
 
 #backButton span {

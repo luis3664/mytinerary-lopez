@@ -1,0 +1,28 @@
+.card-itinerary {
+    min-width: 240px;
+    width: 90%;
+    min-height: 15vh;
+    background-color: #ffffffe2;
+    border-radius: 1rem;
+    border: solid 2px #cc892d;
+    box-shadow: 6px 6px 2px #0000008c;
+}
+
+.img-itinerary {
+    border: solid 2px #cc892d;
+    border-radius: 50%;
+    width: 120px;
+    height: 120px;
+    background-color: #cc892d;
+    overflow: hidden;
+}
+
+.img-itinerary img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.user-itinerary {
+    
+}

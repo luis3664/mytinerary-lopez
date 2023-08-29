@@ -21,7 +21,7 @@ const CityDetails = () => {
 
     useEffect(() => {
         getData(urlAPI, id);
-    }, [])
+    }, []);
 
     return (
         <article className='d-flex px-4 justify-content-center align-items-center flex-column flex-lg-row mb-5' id='card-details'>
