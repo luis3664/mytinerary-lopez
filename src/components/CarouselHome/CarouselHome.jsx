@@ -1,90 +1,36 @@
 import './carouselHome.css'
-import axios from 'axios'
 import CarouselSlide from '../CarouselSlide/CarouselSlide'
-import { useEffect, useState } from 'react'
+import { useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import { getSlideCarousel, getNextSlideCarousel, getPrevSlideCarousel } from '../../redux/actions/carouselAction.js'
 
 const CarouselHome = () => {
 
-    let [indexSlide, setIndexSlide] = useState(1);
-    let [slides, setSlides] = useState([
-        {
-            img: './trip.png',
-            name: 'Loading...'
-        }, {
-            img: './trip.png',
-            name: 'Loading...'
-        }, {
-            img: './trip.png',
-            name: 'Loading...'
-        }, {
-            img: './trip.png',
-            name: 'Loading...'
-        }
-    ]);
-    //     {
-    //         img: './trip.png',
-    //         name: 'Loading...'
-    //     },{
-    //         img: './trip.png',
-    //         name: 'Loading...'
-    //     },{
-    //         img: './trip.png',
-    //         name: 'Loading...'
-    //     },{
-    //         img: './trip.png',
-    //         name: 'Loading...'
-    //     }
-    // ];
+    const dispatch = useDispatch();
+    const {slide, page} = useSelector(store => store.carousel);
 
-    const urlAPI = 'http://localhost:4000/api/cities/';
+    const nextSlide = () => dispatch(getNextSlideCarousel(page));
 
-    async function getData(url, string = '', ref = '', count = '') {
-        try {
-            await axios.get(url + '?name=' + string + '&page=' + ref + '&items=' + count)
-                .then((res) => {
-                    setSlides(res.data.response);
-                }).catch();
-        } catch (error) {
-            console.log(error);
-        }
-    };
-
-    const nextSlide = () => {
-        if (indexSlide == 3) {
-            setIndexSlide(1)
-        } else {
-            setIndexSlide(indexSlide + 1)
-        };
-        getData(urlAPI, '', indexSlide, 4);
-    };
-
-    const prevSlide = () => {
-        if (indexSlide == 1) {
-            setIndexSlide(3)
-        } else {
-            setIndexSlide(indexSlide - 1)
-        };
-        getData(urlAPI, '', indexSlide, 4);
-    };
+    const prevSlide = () => dispatch(getPrevSlideCarousel(page));
 
     useEffect(() => {
-        getData(urlAPI, '', indexSlide, 4);
+        dispatch(getSlideCarousel(1));
     }, []);
 
     useEffect(() => {
         let intervalId = setInterval(() => {
-            nextSlide();
+            dispatch(getNextSlideCarousel(page));
         }, 4500);
 
         return () => { clearInterval(intervalId) };
-    }, [indexSlide, slides]);
+    });
 
     return (
         <section className='row' id='carouselMain'>
             <h2 className='text-center title-carousel'>Popular Mytineraries</h2>
             <article>
                 <div className='carousel indexSlide px-5 d-flex justify-content-center align-items-center'>
-                    <CarouselSlide array={slides} />
+                    <CarouselSlide array={slide} />
 
                     <button className='carousel-control-prev' onClick={prevSlide} type='button'>
                         <span className='carousel-control-prev-icon' aria-hidden='true'></span>

@@ -5,12 +5,17 @@ import CardCity from '../../components/CardCity/CardCity'
 import SearcherBar from '../../components/SearcherBar/SearcherBar'
 import ButtonsPage from '../../components/ButtonsPage/ButtonsPage'
 import { useEffect, useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import { getCities } from '../../redux/actions/citiesAction.js'
 
 const Cities = () => {
     let [cities, setCities] = useState([{ _id: '0', name: 'Mytinerary', lang: 'Travellers', country: 'World', currency: 'Dreams', img: '/discover.jpg' }]);
     let [searcher, setSearcher] = useState('');
     let [page, setPage] = useState(1);
-    let [slides, setSlides] =useState(0);
+    let [slides, setSlides] = useState(0);
+
+    const { cities2 } = useSelector(store => store.cities);
+    const dispatch = useDispatch();
 
     const lisentSearcher = (event) => {
         setSearcher(event.target.value);
@@ -32,7 +37,7 @@ const Cities = () => {
                 .then((res) => {
                     setCities(res.data.response);
 
-                    if (slides == 0) {setSlides(res.data.count)};
+                    if (slides == 0) { setSlides(res.data.count) };
                 }).catch();
 
         } catch (error) {
@@ -63,12 +68,13 @@ const Cities = () => {
 
     useEffect(() => {
         getData(urlAPI, searcher, page, 6);
+        dispatch(getCities({name: searcher, page:page, items:6}));
     }, [page]);
 
     return (
         <Section extraClass='my-5'>
             <h2 className='text-center cities-title'>Find your destiny</h2>
-            
+
             <SearcherBar submitF={preventSubmit} searchI={search} change={lisentSearcher} keyUp={lisentSearcher} searcher={searcher} />
 
             <article className='d-flex justify-content-evenly align-items-center flex-wrap'>
@@ -79,7 +85,7 @@ const Cities = () => {
                         </div>
                 }
             </article>
-            
+
             <ButtonsPage prevF={pagePrev} nextF={pageNext} number={page} />
         </Section>
     )
