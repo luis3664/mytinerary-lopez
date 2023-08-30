@@ -1,4 +1,4 @@
-import { createAsyncThunk } from "@reduxjs/toolkit"
+import { createAsyncThunk, createAction } from "@reduxjs/toolkit"
 import axios from "axios"
 
 export const getCities = createAsyncThunk('getCities', async (ref = {}) => {
@@ -9,13 +9,13 @@ export const getCities = createAsyncThunk('getCities', async (ref = {}) => {
     } catch (err) {
         console.log(err);
 
-        return [{ _id: '0', name: 'Mytinerary', lang: 'Travellers', country: 'World', currency: 'Dreams', img: '/discover.jpg' }];
+        return {response: 'fail'}
     }
 });
 
 export const getNextPageCities = createAsyncThunk('getNextPageCities', async (ref = {}) => {
     try {
-        const {name, page, items, slides} = ref;
+        const { name, page, items, slides } = ref;
         let res;
         let newPage;
 
@@ -30,25 +30,25 @@ export const getNextPageCities = createAsyncThunk('getNextPageCities', async (re
         }
 
         return {
-            ... res.data,
+            ...res.data,
             page: newPage
         };
     } catch (err) {
         console.log(err);
 
-        return [{ _id: '0', name: 'Mytinerary', lang: 'Travellers', country: 'World', currency: 'Dreams', img: '/discover.jpg' }];
+        return {response: 'fail'}
     }
 });
 
 export const getPrevPageCities = createAsyncThunk('getPrevPageCities', async (ref = {}) => {
     try {
-        const {name, page, items, slides} = ref;
+        const { name, page, items, slides } = ref;
         let res;
         let newPage;
 
         if (page - 1 == 0) {
             res = await axios.get(`http://localhost:4000/api/cities/?name=${name}&page=${slides}&items=${items}`);
-            
+
             newPage = slides;
         } else {
             res = await axios.get(`http://localhost:4000/api/cities/?name=${name}&page=${page - 1}&items=${items}`);
@@ -57,12 +57,30 @@ export const getPrevPageCities = createAsyncThunk('getPrevPageCities', async (re
         }
 
         return {
-            ... res.data,
+            ...res.data,
             page: newPage
         };
     } catch (err) {
         console.log(err);
 
-        return [{ _id: '0', name: 'Mytinerary', lang: 'Travellers', country: 'World', currency: 'Dreams', img: '/discover.jpg' }];
+        return {response: 'fail'}
+    }
+});
+
+export const setSearcher = createAction('setSearcher', (value) => {
+    return {
+        payload: value
+    }
+});
+
+export const getCity = createAsyncThunk('getCity', async (id) => {
+    try {
+        const res = await axios.get(`http://localhost:4000/api/cities/${id}`);
+
+        return res.data;
+    } catch (err) {
+        console.log(err);
+
+        return {response: 'fail'}
     }
 });

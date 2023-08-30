@@ -1,29 +1,10 @@
 import './itineraries.css'
-import axios from 'axios'
-import { useParams } from 'react-router-dom'
-import { useEffect, useState } from 'react'
+import { useSelector } from 'react-redux'
 import CardItinerary from '../CardItinerary/CardItinerary'
 
 const Itineraries = () => {
-    let [itineraries, setItineraries] = useState([]);
-    let id = useParams().id;
-    const urlAPI = 'http://localhost:4000/api/cities/';
-
-    async function getData(url, id) {
-        try {
-            await axios.get(url + id)
-                .then((res) => {
-                    setItineraries(res.data.response.itineraries);
-                }).catch();
-        } catch (error) {
-            console.log(error);
-        }
-    };
-
-    useEffect(() => {
-        getData(urlAPI, id);
-    }, []);
-    console.log(itineraries);
+    const { city } = useSelector(store => store.cities);
+    const itineraries = city.itineraries;
 
     return (
         <article className='d-flex justify-content-center align-items-center itinerary mb-4'>
