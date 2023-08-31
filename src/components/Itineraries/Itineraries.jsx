@@ -8,8 +8,8 @@ const Itineraries = () => {
 
     return (
         <article className='d-flex justify-content-center align-items-center itinerary mb-4'>
-            <div className='itinerary-bg d-flex justify-content-center align-items-center'>
-                {itineraries.map((itinerary) => <CardItinerary key={itinerary._id} user={itinerary} />)}
+            <div className='itinerary-bg d-flex justify-content-center align-items-center flex-wrap gap-5 py-5 px-1'>
+                {itineraries.map((itinerary) => <CardItinerary key={itinerary._id} itinerary={itinerary} />)}
             </div>
         </article>
     )

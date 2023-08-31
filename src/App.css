@@ -24,6 +24,18 @@
     }
 }
 
+@keyframes buttonViewMore {
+    0%, 50% {
+        transform: translatey(0);
+    }
+    10%, 30% {
+        transform: translatey(2px);
+    }
+    20%, 40% {
+        transform: translatey(-2px);
+    }
+}
+
 @media (min-width:0px) and (max-width:426px) {
     #imgHero {
         width: 180px;

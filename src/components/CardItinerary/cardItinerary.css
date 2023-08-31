@@ -2,7 +2,7 @@
     min-width: 240px;
     width: 90%;
     min-height: 15vh;
-    background-color: #ffffffe2;
+    background-color: #ffffffe6;
     border-radius: 1rem;
     border: solid 2px #cc892d;
     box-shadow: 6px 6px 2px #0000008c;
@@ -21,4 +21,38 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
+}
+
+.itinerary-price i {
+    color: #53b145;
+}
+
+.itinerary-time,
+.itinerary-hastags {
+    font-family: 'Inconsolata', monospace;
+    font-size: 20px;
+    font-weight: bolder;
+}
+
+.likes {
+    color: #e10303;
+    font-size: 25px;
+    font-weight: bolder;
+    cursor: pointer;
+}
+
+.more-button {
+    cursor: pointer;
+}
+.more-button i {
+    animation: buttonViewMore 2s;
+    animation-iteration-count: infinite;
+}
+
+.itinerary-activities a {
+    cursor: default;
+}
+
+.itinerary-activities p {
+    font-size: 24px;
 }
