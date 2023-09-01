@@ -23,10 +23,7 @@
     object-fit: cover;
 }
 
-.itinerary-price i {
-    color: #53b145;
-}
-
+.like-number,
 .itinerary-time,
 .itinerary-hastags {
     font-family: 'Inconsolata', monospace;
@@ -55,4 +52,12 @@
 
 .itinerary-activities p {
     font-size: 24px;
+}
+
+.green {
+    color: #53b145;
+}
+
+.gray {
+    color : #535353
 }

@@ -4,7 +4,7 @@ import Comment from '../Comment/Comment'
 import CardCarousel from '../CardCarousel/CardCarousel'
 
 const CardItinerary = ({ itinerary }) => {
-    let iconCash = [];
+    let iconCash = [false, false, false, false, false];
     const [display, setDisplay] = useState(false);
     
     const viewMore = () => {
@@ -16,7 +16,7 @@ const CardItinerary = ({ itinerary }) => {
     }
 
     for (let i = 0; i < itinerary.price; i++) {
-        iconCash.push(i)
+        iconCash[i] = true;
     }
     return (
         <div className='card-itinerary d-flex justify-content-evenly align-items-center flex-wrap p-3'>
@@ -48,13 +48,14 @@ const CardItinerary = ({ itinerary }) => {
                 <div className='itinerary-price'>
                     <span className='cities-title fs-3 d-flex flex-wrap justify-content-center align-items-center gap-2'>
                         Price:
-                        {iconCash.map((icon, index) => <i key={index} className='bi bi-cash d-flex pt-2'></i>)}
+                        {iconCash.map((icon, index) => <i key={index} className={`bi bi-cash d-flex pt-1 ${icon ? 'green' : 'gray'}`}></i>)}
                     </span>
                 </div>
 
-                <div className='d-flex likes gap-4'>
-                    <i className='bi bi-suit-heart'>{' ' + itinerary.likes}</i>
+                <div className='d-flex gap-2 like-number'>
+                    <i className='bi bi-suit-heart likes'></i>
                     {/* <i className='bi bi-suit-heart-fill'>{' ' + itinerary.likes}</i> */}
+                    <span className='fs-4'>{itinerary.likes}</span>
                 </div>
             </div>
 
