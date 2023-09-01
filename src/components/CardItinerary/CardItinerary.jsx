@@ -6,7 +6,7 @@ import CardCarousel from '../CardCarousel/CardCarousel'
 const CardItinerary = ({ itinerary }) => {
     let iconCash = [];
     const [display, setDisplay] = useState(false);
-    console.log(itinerary.comments);
+    
     const viewMore = () => {
         if (display) {
             setDisplay(false);
@@ -58,7 +58,7 @@ const CardItinerary = ({ itinerary }) => {
                 </div>
             </div>
 
-            <div className={`itinerary-activities col-12 text-center mt-4 d-flex justify-content-evenly align-items-center flex-wrap ${display ? '' : 'd-none'}`}>
+            <div className={`itinerary-activities gap-2 col-12 text-center mt-4 d-flex justify-content-evenly align-items-center flex-wrap ${display ? '' : 'd-none'}`}>
                 <h2 className='cities-title fs-4 col-12'>Activities</h2>
                 {itinerary.activities.map((activity) => <CardCarousel key={activity._id} name={activity.name} hrefImg={activity.img} href={'#'} />)}
             </div>
