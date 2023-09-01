@@ -1,0 +1,26 @@
+.itinerary-comment {
+    width: 90%;
+    min-width: 240px;
+    min-height: 15vh;
+    background-color: #ffffff;
+    border-radius: 1rem;
+    border: solid 2px #cc892d;
+    box-shadow: 6px 6px 2px #0000008c;
+}
+
+.user-photo {
+    border: solid 2px #cc892d;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    background-color: #cc892d;
+    overflow: hidden;
+    object-fit: cover;
+}
+
+.itinerary-comment p {
+    text-indent: 1.3rem;
+    font-family: 'Inconsolata', monospace;
+    font-size: 20px;
+    font-weight: bolder;
+}

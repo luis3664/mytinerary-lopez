@@ -1,27 +1,17 @@
 import './cityDetails.css'
 import { useParams } from 'react-router-dom'
-import axios from 'axios'
-import { useEffect, useState } from 'react'
+import { useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import { getCity } from '../../redux/actions/citiesAction.js'
 
 const CityDetails = () => {
-    let [city, setCity] = useState({name: 'Mytinerary', lang: 'Travellers', country: 'World', currency: 'Dreams', img: '/backgroundTinerary.jpg'});
     let id = useParams().id;
-    const urlAPI = 'http://localhost:4000/api/cities/';
-
-    async function getData(url, id) {
-        try {
-            await axios.get(url + id)
-            .then((res) => {
-                setCity(res.data.response);
-            }).catch();
-        } catch (error) {
-            console.log(error);
-        }
-    };
+    const { city } = useSelector(store => store.cities);
+    const dispatch = useDispatch();
 
     useEffect(() => {
-        getData(urlAPI, id);
-    }, [])
+        dispatch(getCity(id))
+    }, []);
 
     return (
         <article className='d-flex px-4 justify-content-center align-items-center flex-column flex-lg-row mb-5' id='card-details'>
