@@ -9,7 +9,7 @@ export const getCities = createAsyncThunk('getCities', async (ref = {}) => {
     } catch (err) {
         console.log(err);
 
-        return {response: 'fail'}
+        return { response: 'fail' }
     }
 });
 
@@ -36,7 +36,7 @@ export const getNextPageCities = createAsyncThunk('getNextPageCities', async (re
     } catch (err) {
         console.log(err);
 
-        return {response: 'fail'}
+        return { response: 'fail' }
     }
 });
 
@@ -63,7 +63,7 @@ export const getPrevPageCities = createAsyncThunk('getPrevPageCities', async (re
     } catch (err) {
         console.log(err);
 
-        return {response: 'fail'}
+        return { response: 'fail' }
     }
 });
 
@@ -81,6 +81,6 @@ export const getCity = createAsyncThunk('getCity', async (id) => {
     } catch (err) {
         console.log(err);
 
-        return {response: 'fail'}
+        return { response: 'fail' }
     }
 });

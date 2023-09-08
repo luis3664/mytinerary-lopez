@@ -11,7 +11,7 @@
 .login-box {
     background: #ffffffdd;
     min-width: 35%;
-    min-height: 80vh;
+    min-height: 85vh;
     text-align: center;
 }
 
@@ -64,6 +64,16 @@
 .login-input:hover {
 	outline: none;
 	border-bottom-color: #cd821a;
+}
+
+.screen-link {
+    color: #cc892d;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.screen-link:hover {
+    color: #b9700b;
 }
 
 @media (min-width:0px) and (max-width:426px) {

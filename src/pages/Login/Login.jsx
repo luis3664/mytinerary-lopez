@@ -18,7 +18,7 @@ const Login = () => {
     return (
         <Section>
             <article className={`login-container w-75 h-100 d-flex justify-content-center align-items-${screen ? 'start' : 'end'} flex-column`}>
-                {screen ? <SignIn fnBtn={screenChange} /> : <SignUp fnBtn={screenChange} />}
+                {screen ? <SignIn screenFn={screenChange} /> : <SignUp screenFn={screenChange} />}
             </article>
         </Section>
     )
