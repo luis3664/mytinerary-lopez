@@ -15,26 +15,26 @@ const Cities = () => {
         dispatch(setSearcher(event.target.value));
 
         if (event.keyCode == 8 && searcher == '') {
-            dispatch(getCities({name: searcher, page: page, items: 6}));
+            dispatch(getCities({ name: searcher, page: page, items: 6 }));
         }
     };
 
     const preventSubmit = (event) => {
         event.preventDefault();
-        
-        dispatch(getCities({name: searcher, page: 1, items: 6}));
+
+        dispatch(getCities({ name: searcher, page: 1, items: 6 }));
     };
 
-    const search = () => dispatch(getCities({name: searcher, page: 1, items: 6}));
+    const search = () => dispatch(getCities({ name: searcher, page: 1, items: 6 }));
 
     const pagePrev = () => {
-        if (!searcher) {dispatch(getPrevPageCities({name: searcher, page: page, items: 6, slides: slides}));}
+        if (!searcher) { dispatch(getPrevPageCities({ name: searcher, page: page, items: 6, slides: slides })); }
     };
     const pageNext = () => {
-        if (!searcher) {dispatch(getNextPageCities({name: searcher, page: page, items: 6, slides: slides}));}
+        if (!searcher) { dispatch(getNextPageCities({ name: searcher, page: page, items: 6, slides: slides })); }
     };
 
-    useEffect(() => {dispatch(getCities({name: searcher, page:page, items:6}));}, []);
+    useEffect(() => { dispatch(getCities({ name: searcher, page: page, items: 6 })); }, []);
 
     return (
         <Section extraClass='my-5'>

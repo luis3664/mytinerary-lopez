@@ -1,0 +1,77 @@
+.login-container {
+    background-image: url('/discover.jpg');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    box-shadow: 6px 6px 2px #0000008c;
+    border-radius: 1rem;
+    overflow: hidden;
+}
+
+.login-box {
+    background: #ffffffdd;
+    min-width: 35%;
+    min-height: 80vh;
+    text-align: center;
+}
+
+.btn-submit {
+    background-color: rgb(255, 255, 255);
+    color: #cc892d;
+    border: 2px solid #cc892d;
+    font-weight: 1000;
+    color: rgb(235, 199, 132);
+    margin: 0 1.5rem 0 1.5rem;
+    text-shadow: 1px 1px 0px rgb(0, 0, 0), -1px -1px 0px rgb(0, 0, 0);
+    transition: 500ms;
+    border-radius: 0.7rem;
+}
+
+.btn-submit:hover {
+    color: #cd821a;
+    background-color: #fbd7a4;
+}
+
+.login-icon {
+	color: #e4bc73;
+}
+
+.login-input {
+	border: none;
+	border-bottom: 2px solid #D1D1D4;
+	background: none;
+	padding: 10px;
+	font-weight: 700;
+	width: 75%;
+	transition: .2s;
+}
+
+.login-select {
+    border: none;
+	border-bottom: 2px solid #D1D1D4;
+	background: none;
+	padding: 10px;
+	font-weight: 700;
+	width: 100%;
+	transition: .2s;
+}
+
+.login-select:active,
+.login-select:focus,
+.login-select:hover,
+.login-input:active,
+.login-input:focus,
+.login-input:hover {
+	outline: none;
+	border-bottom-color: #cd821a;
+}
+
+@media (min-width:0px) and (max-width:426px) {
+    .login-container {
+        min-width: 100%
+    }
+
+    .login-box {
+        min-width: 100%;
+    }
+}
