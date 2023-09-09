@@ -6,6 +6,9 @@ import Error404 from './pages/Error404/Error404'
 import CityFull from './pages/CityFull/CityFull'
 import Login from './pages/Login/Login'
 import { RouterProvider, createBrowserRouter } from 'react-router-dom'
+import { useDispatch } from 'react-redux'
+import { useEffect } from 'react'
+import { setUser } from './redux/actions/usersAction'
 
 const router = createBrowserRouter([
   {
@@ -33,6 +36,12 @@ const router = createBrowserRouter([
 ])
 
 function App() {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(setUser());
+  }, [])
+  
   return (
     <RouterProvider router={router} />
   )
