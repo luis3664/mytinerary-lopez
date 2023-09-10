@@ -10,30 +10,31 @@ import { useDispatch } from 'react-redux'
 import { useEffect } from 'react'
 import { setUser } from './redux/actions/usersAction'
 
+
 const router = createBrowserRouter([
   {
-    path:'/',
+    path: '/',
     element: <LayoutMain />,
     children: [
       {
-        path:'/',
+        path: '/',
         element: <Home />
-      },{
-        path:'/cities',
+      }, {
+        path: '/cities',
         element: <Cities />
-      },{
-        path:'/city/:id',
+      }, {
+        path: '/city/:id',
         element: <CityFull />
-      },{
-        path:'/login',
+      }, {
+        path: '/login',
         element: <Login />
-      },{
-        path:'*',
+      }, {
+        path: '*',
         element: <Error404 />
       }
     ]
   }
-])
+],)
 
 function App() {
   const dispatch = useDispatch();
@@ -41,7 +42,7 @@ function App() {
   useEffect(() => {
     dispatch(setUser());
   }, [])
-  
+
   return (
     <RouterProvider router={router} />
   )

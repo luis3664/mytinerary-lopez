@@ -1,17 +1,16 @@
 import { useRef } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { signInUser } from '../../redux/actions/usersAction.js';
-import { useNavigate } from 'react-router-dom';
 import { GoogleLogin } from '@react-oauth/google';
 import jwtDecode from 'jwt-decode';
 
 const SignIn = ({ screenFn }) => {
     let formData = {};
     const dispatch = useDispatch();
-    const navigate = useNavigate();
+    const { notify } = useSelector(store => store.users)
 
-    const mail = useRef(null)
-    const password = useRef(null)
+    const mail = useRef(null);
+    const password = useRef(null);
 
     const submitFn = (event) => {
         event.preventDefault();
@@ -19,7 +18,15 @@ const SignIn = ({ screenFn }) => {
         formData.mail = mail.current.value;
         formData.password = password.current.value;
 
-        dispatch(signInUser({ user: formData, navigate: navigate }));
+        dispatch(signInUser(formData)).then((data) => {
+            const res = data.payload;
+
+            if (!res.success) {
+                notify.reject(res.axios.error);
+            } else {
+                notify.success(res.userData.firstName);
+            }
+        });
     }
 
     const loginGoogle = (credential) => {
@@ -28,7 +35,15 @@ const SignIn = ({ screenFn }) => {
         formData.mail = res.email;
         formData.password = import.meta.env.VITE_USER_PWD + res.sub;
 
-        dispatch(signInUser({ user: formData, navigate: navigate }));
+        dispatch(signInUser(formData)).then((data) => {
+            const res = data.payload;
+
+            if (!res.success) {
+                notify.reject(res.axios.error);
+            } else {
+                notify.success(res.userData.firstName);
+            }
+        });
     };
 
     return (
@@ -41,7 +56,6 @@ const SignIn = ({ screenFn }) => {
                 locale='en'
                 theme='outline'
                 size='medium'
-                useOneTap='true'
                 onSuccess={loginGoogle}
                 onError={() => {
                     console.log('Login Failed');

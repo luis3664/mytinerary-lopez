@@ -1,14 +1,30 @@
-import { useRef } from "react";
-import { useDispatch } from "react-redux";
+import { useEffect, useRef, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { signUpUser } from '../../redux/actions/usersAction.js';
-import { useNavigate } from "react-router-dom";
 import { GoogleLogin } from '@react-oauth/google';
+import axios from "axios";
 import jwtDecode from "jwt-decode";
+
 
 const SignUp = ({ screenFn }) => {
     let formData = {};
-    const navigate = useNavigate();
+    const [countries, setCountries] = useState([]);
+    const { notify } = useSelector(store => store.users);
+
     const dispatch = useDispatch();
+
+    const getContries = async () => {
+        try {
+            const res = await axios.get('http://localhost:4000/api/countries/');
+            setCountries(res.data.response);
+        } catch (err) {
+            console.log(err);
+        }
+    };
+
+    useEffect(() => {
+        getContries();
+    }, [])
 
     const firstName = useRef(null);
     const lastName = useRef(null);
@@ -30,7 +46,7 @@ const SignUp = ({ screenFn }) => {
         if (country.current.value != '') {
             formData.country = country.current.value;
         } else {
-            console.log('Tienen que seleccionar un Pais')
+            return notify.reject('You have to select a Country.');
         }
 
         formData.mail = mail.current.value;
@@ -38,28 +54,40 @@ const SignUp = ({ screenFn }) => {
         if (password.current.value == rePassword.current.value) {
             formData.password = password.current.value;
         } else {
-            console.log('Tienen que ser iguales las contraseñas')
+            return notify.reject('Passwords must be the same.');
         }
 
-        dispatch(signUpUser({ newUser: formData, navigate: navigate }))
+        dispatch(signUpUser(formData)).then((data) => {
+            const res = data.payload;
+
+            if (!res.success) {
+                res.axios.message.map((error) => notify.reject(error));
+            } else {
+                notify.success(res.userData.firstName);
+            }
+        });
     };
 
     const loginGoogle = (credential) => {
         let res = jwtDecode(credential.credential)
-        console.log(res);
 
         formData.firstName = res.given_name;
         formData.lastName = res.family_name;
-        formData.age = 18;
         formData.photo = res.picture;
         formData.country = res.locale;
 
         formData.mail = res.email;
         formData.password = import.meta.env.VITE_USER_PWD + res.sub;
 
-        console.log(formData);
+        dispatch(signUpUser(formData)).then((data) => {
+            const res = data.payload;
 
-        dispatch(signUpUser({ newUser: formData, navigate: navigate }));
+            if (!res.success) {
+                res.axios.message.map((error) => notify.reject(error));
+            } else {
+                notify.success(res.userData.firstName);
+            }
+        });
     };
 
     return (
@@ -95,14 +123,7 @@ const SignUp = ({ screenFn }) => {
 
                 <select id='country' name='country' defaultValue={'Select Country'} ref={country} className='login-select'>
                     <option value='' defaultValue>Select Country</option>
-                    <option value='Argentina'>Argentina</option>
-                    <option value='Brazil'>Brazil</option>
-                    <option value='Chile'>Chile</option>
-                    <option value='Colombia'>Colombia</option>
-                    <option value='Ecuador'>Ecuador</option>
-                    <option value='Peru'>Peru</option>
-                    <option value='Uruguay'>Uruguay</option>
-                    <option value='Venezuela'>Venezuela</option>
+                    {countries.map((country) => <option key={country._id} value={country.name}>{country.name}</option>)}
                 </select>
             </label>
 
@@ -134,7 +155,7 @@ const SignUp = ({ screenFn }) => {
                 locale='en'
                 theme='outline'
                 size='medium'
-                useOneTap= 'true'
+                useOneTap='true'
                 onSuccess={loginGoogle}
                 onError={() => {
                     console.log('Login Failed');

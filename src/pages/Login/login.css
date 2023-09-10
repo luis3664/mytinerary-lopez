@@ -11,6 +11,7 @@
 .login-box {
     background: #ffffffdd;
     min-width: 35%;
+    max-width: 350px;
     min-height: 85vh;
     text-align: center;
 }
@@ -52,8 +53,9 @@
 	background: none;
 	padding: 10px;
 	font-weight: 700;
-	width: 100%;
+	max-width: 200px;
 	transition: .2s;
+    overflow: scroll;
 }
 
 .login-select:active,

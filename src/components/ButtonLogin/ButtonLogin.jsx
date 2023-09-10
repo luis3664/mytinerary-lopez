@@ -2,13 +2,16 @@ import './buttonLogin.css'
 import { useDispatch } from 'react-redux'
 import { Link as LinkRouter } from 'react-router-dom'
 import { logOut } from '../../redux/actions/usersAction'
+import { useSelector } from 'react-redux'
 
 
 const ButtonLogin = ({ href, title, login = false }) => {
-    const dispatch = useDispatch()
+    const dispatch = useDispatch();
+    const { notify } = useSelector(store => store.users)
 
     const dispatchFunc = () => {
         dispatch(logOut());
+        notify.logout();
     }
 
     return (

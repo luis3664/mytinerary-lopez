@@ -1,12 +1,50 @@
 import { createReducer } from '@reduxjs/toolkit';
 import { signInUser, signUpUser, logOut, setUser } from '../actions/usersAction';
+import { toast } from 'react-toastify';
 
 const initialState = {
     firstName: '',
     lastName: '',
     photo: '',
     token: '',
-    error: []
+    notify: {
+        success: (name) => {
+            toast.success(`Welcome ${name}.`, {
+                position: "top-center",
+                autoClose: 2000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "light",
+            });
+        },
+        reject: (error) => {
+            toast.warn(error, {
+                position: "bottom-center",
+                autoClose: 4000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "light",
+            });
+        },
+        logout: () => {
+            toast.success('Logout Success.', {
+                position: "top-center",
+                autoClose: 2000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "light",
+            });
+        }
+    }
 };
 
 export const usersReducer = createReducer(initialState, (builder) => {

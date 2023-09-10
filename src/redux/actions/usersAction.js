@@ -3,35 +3,31 @@ import LocalStorage from '../../../utils/LocalStorage'
 import axios from "axios"
 
 
-export const signInUser = createAsyncThunk('signInUser', async (ref) => {
+export const signInUser = createAsyncThunk('signInUser', async (user) => {
     try {
-        const res = await axios.post(`http://localhost:4000/api/auth/in`, ref.user);
+        const res = await axios.post(`http://localhost:4000/api/auth/in`, user);
 
         LocalStorage.set('token_user', res.data.token);
 
-        ref.navigate('/');
-
         return res.data;
     } catch (err) {
-        console.log(err);
+        // console.log(err);
 
-        return { response: 'fail' }
+        return { response: 'fail', axios: err.response.data }
     }
 });
 
-export const signUpUser = createAsyncThunk('signUpUser', async (ref) => {
+export const signUpUser = createAsyncThunk('signUpUser', async (newUser) => {
     try {
-        const res = await axios.post(`http://localhost:4000/api/auth/up`, ref.newUser);
+        const res = await axios.post(`http://localhost:4000/api/auth/up`, newUser);
 
         LocalStorage.set('token_user', res.data.token);
 
-        ref.navigate('/');
-
         return res.data;
     } catch (err) {
-        console.log(err);
+        // console.log(err);
 
-        return { response: 'fail' }
+        return { response: 'fail', axios: err.response.data }
     }
 });
 
@@ -59,9 +55,9 @@ export const setUser = createAsyncThunk('setUser', async () => {
                 token: token
             };
         } catch (err) {
-            console.log(err);
+            // console.log(err);
     
-            return { response: 'fail' }
+            return { response: 'fail', axios: err.response.data }
         }
     } else {
         return { response: 'fail' }
