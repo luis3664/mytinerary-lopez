@@ -3,7 +3,7 @@ import { getCities, getNextPageCities, getPrevPageCities, setSearcher, getCity }
 
 const initialState = {
     cities: [{ _id: '0', name: 'Mytinerary', lang: 'Travellers', country: 'World', currency: 'Dreams', img: '/discover.jpg' }],
-    city: {name: 'Mytinerary', lang: 'Travellers', country: 'World', currency: 'Dreams', img: '/backgroundTinerary.jpg', itineraries: []},
+    city: { name: 'Mytinerary', lang: 'Travellers', country: 'World', currency: 'Dreams', img: '/backgroundTinerary.jpg', itineraries: [] },
     page: 1,
     slides: 1,
     searcher: ''
@@ -29,7 +29,7 @@ export const citiesReducer = createReducer(initialState, (builder) => {
                     city: action.payload.response
                 }
             }
-            
+
         })
         .addCase(getCity.pending, (state, action) => {
             return {
