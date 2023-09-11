@@ -41,7 +41,7 @@ export const logOut = createAction('logOut', () => {
 
 export const setUser = createAsyncThunk('setUser', async () => {
     const token = LocalStorage.get('token_user');
-    
+
     if (token) {
         try {
             const res = await axios.get(`http://localhost:4000/api/auth/token`, {
@@ -49,14 +49,14 @@ export const setUser = createAsyncThunk('setUser', async () => {
                     Authorization: "Bearer " + token
                 }
             });
-    
+
             return {
-                ...res.data.response, 
+                ...res.data.response,
                 token: token
             };
         } catch (err) {
             // console.log(err);
-    
+
             return { response: 'fail', axios: err.response.data }
         }
     } else {
