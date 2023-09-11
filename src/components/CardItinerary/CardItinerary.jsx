@@ -1,23 +1,55 @@
 import './cardItinerary.css'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import Comment from '../Comment/Comment'
 import CardCarousel from '../CardCarousel/CardCarousel'
+import { useDispatch, useSelector } from 'react-redux'
+import { likeItinerary } from '../../redux/actions/citiesAction'
 
 const CardItinerary = ({ itinerary }) => {
     let iconCash = [false, false, false, false, false];
+    const { userId } = useSelector(store => store.users)
     const [display, setDisplay] = useState(false);
-    
+    const [likeHeart, setLikeHeart] = useState(false);
+    const dispatch = useDispatch();
+
     const viewMore = () => {
         if (display) {
             setDisplay(false);
         } else {
             setDisplay(true);
         }
-    }
+    };
 
     for (let i = 0; i < itinerary.price; i++) {
         iconCash[i] = true;
-    }
+    };
+
+    const handlerLikeHeart = () => {
+        let ref = itinerary.likes.includes(userId)
+
+        if (ref) {
+            setLikeHeart(false);
+        } else {
+            setLikeHeart(true);
+        }
+    };
+
+    const likesFn = () => {
+        dispatch(likeItinerary(itinerary._id)).then((res) => {
+            if (!res.error) {
+                handlerLikeHeart();
+            }
+        });
+    };
+
+    useEffect(() => {
+        let ref = itinerary.likes.includes(userId)
+
+        if (ref) {
+            setLikeHeart(true);
+        }
+    }, []);
+
     return (
         <div className='card-itinerary d-flex justify-content-evenly align-items-center flex-wrap p-3'>
             <h2 className='cities-title text-center col-12 mb-4'>{itinerary.title}</h2>
@@ -53,9 +85,10 @@ const CardItinerary = ({ itinerary }) => {
                 </div>
 
                 <div className='d-flex gap-2 like-number'>
-                    <i className='bi bi-suit-heart likes'></i>
-                    {/* <i className='bi bi-suit-heart-fill'>{' ' + itinerary.likes}</i> */}
-                    <span className='fs-4'>{itinerary.likes}</span>
+                    {likeHeart ? <i className='bi bi-suit-heart-fill likes' onClick={likesFn}></i> :
+                        <i className='bi bi-suit-heart likes' onClick={likesFn}></i>
+                    }
+                    <span className='fs-4'>{itinerary.likes.length}</span>
                 </div>
             </div>
 

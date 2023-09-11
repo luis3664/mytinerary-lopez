@@ -1,4 +1,5 @@
 import { createAsyncThunk, createAction } from "@reduxjs/toolkit"
+import LocalStorage from '../../../utils/LocalStorage'
 import axios from "axios"
 
 export const getCities = createAsyncThunk('getCities', async (ref = {}) => {
@@ -81,6 +82,32 @@ export const getCity = createAsyncThunk('getCity', async (id) => {
     } catch (err) {
         console.log(err);
 
+        return { response: 'fail' }
+    }
+});
+
+export const likeItinerary = createAsyncThunk('likeItinerary', async (itineraryId, thunkAPI) => {
+    const token = LocalStorage.get('token_user');
+    
+    if (token) {
+        try {
+            let newLikes = await axios.put(`http://localhost:4000/api/itineraries/like/${itineraryId}`, {}, {
+                headers: {
+                    Authorization: "Bearer " + token
+                }
+            });
+
+            const { city } = thunkAPI.getState().cities;
+
+            let newCity = await axios.get(`http://localhost:4000/api/cities/${city._id}`);
+    
+            return newCity.data.response;
+        } catch (err) {
+            // console.log(err);
+    
+            return { response: 'fail', axios: err.response.data }
+        }
+    } else {
         return { response: 'fail' }
     }
 });

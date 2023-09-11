@@ -9,5 +9,9 @@ export const store = configureStore({
         carousel: carouselReducer,
         cities: citiesReducer,
         users: usersReducer
-    }
+    },
+    middleware: (getDefaultMiddleware) =>
+        getDefaultMiddleware({
+            serializableCheck: false,
+        }),
 })

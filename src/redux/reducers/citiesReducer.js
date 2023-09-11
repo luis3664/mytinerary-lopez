@@ -1,5 +1,5 @@
 import { createReducer } from "@reduxjs/toolkit";
-import { getCities, getNextPageCities, getPrevPageCities, setSearcher, getCity } from "../actions/citiesAction";
+import { getCities, getNextPageCities, getPrevPageCities, setSearcher, getCity, likeItinerary } from "../actions/citiesAction";
 
 const initialState = {
     cities: [{ _id: '0', name: 'Mytinerary', lang: 'Travellers', country: 'World', currency: 'Dreams', img: '/discover.jpg' }],
@@ -84,12 +84,16 @@ export const citiesReducer = createReducer(initialState, (builder) => {
                 }
             }
         })
-        .addCase(getPrevPageCities.pending, (state, action) => {
-            return {
-                ...state,
-                cities: initialState.cities,
-                page: 'Loading...'
+        .addCase(likeItinerary.fulfilled, (state, action) => {
+            if (action.payload.response == 'fail') {
+                return state
+            } else {
+                return {
+                    ...state,
+                    city: action.payload
+                }
             }
         })
+
 })
 

@@ -7,6 +7,7 @@ const initialState = {
     lastName: '',
     photo: '',
     token: '',
+    userId: '',
     notify: {
         success: (name) => {
             toast.success(`Welcome ${name}.`, {
@@ -65,7 +66,8 @@ export const usersReducer = createReducer(initialState, (builder) => {
                     token: action.payload.token,
                     firstName: action.payload.userData.firstName,
                     lastName: action.payload.userData.lastName,
-                    photo: action.payload.userData.photo
+                    photo: action.payload.userData.photo,
+                    userId: action.payload.userData.userId
                 }
             }
         })
@@ -87,6 +89,7 @@ export const usersReducer = createReducer(initialState, (builder) => {
                     firstName: action.payload.userData.firstName,
                     lastName: action.payload.userData.lastName,
                     photo: action.payload.userData.photo,
+                    userId: action.payload.userData.userId,
                     error: []
                 }
             }
@@ -97,7 +100,6 @@ export const usersReducer = createReducer(initialState, (builder) => {
             }
         })
         .addCase(setUser.fulfilled, (state, action) => {
-
             if (action.payload.response == 'fail') {
                 return {
                     ...initialState
@@ -108,7 +110,8 @@ export const usersReducer = createReducer(initialState, (builder) => {
                     token: action.payload.token,
                     firstName: action.payload.firstName,
                     lastName: action.payload.lastName,
-                    photo: action.payload.photo
+                    photo: action.payload.photo,
+                    userId: action.payload._id
                 }
             }
         })
