@@ -9,6 +9,7 @@ import { RouterProvider, createBrowserRouter } from 'react-router-dom'
 import { useDispatch } from 'react-redux'
 import { useEffect } from 'react'
 import { setUser } from './redux/actions/usersAction'
+import ProtectedRoute from '../utils/ProtectedRouter'
 
 
 const router = createBrowserRouter([
@@ -27,7 +28,7 @@ const router = createBrowserRouter([
         element: <CityFull />
       }, {
         path: '/login',
-        element: <Login />
+        element: <ProtectedRoute> <Login/> </ProtectedRoute>
       }, {
         path: '*',
         element: <Error404 />

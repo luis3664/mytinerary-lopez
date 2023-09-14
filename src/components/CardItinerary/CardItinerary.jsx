@@ -3,14 +3,20 @@ import { useEffect, useState } from 'react'
 import Comment from '../Comment/Comment'
 import CardCarousel from '../CardCarousel/CardCarousel'
 import { useDispatch, useSelector } from 'react-redux'
-import { likeItinerary } from '../../redux/actions/citiesAction'
+import { addComment, likeItinerary } from '../../redux/actions/citiesAction'
 
 const CardItinerary = ({ itinerary }) => {
     let iconCash = [false, false, false, false, false];
-    const { userId } = useSelector(store => store.users)
+    const { userId, firstName, lastName, photo, notify } = useSelector(store => store.users)
     const [display, setDisplay] = useState(false);
     const [likeHeart, setLikeHeart] = useState(false);
+    const [addEditComment, setAddEditComment] = useState(false);
+    const newComment = { _id: userId, userName: firstName + ' ' + lastName, userPhoto: photo, comment: '', itinerary: itinerary._id, user: userId, city: itinerary.city };
     const dispatch = useDispatch();
+
+    for (let i = 0; i < itinerary.price; i++) {
+        iconCash[i] = true;
+    };
 
     const viewMore = () => {
         if (display) {
@@ -20,8 +26,12 @@ const CardItinerary = ({ itinerary }) => {
         }
     };
 
-    for (let i = 0; i < itinerary.price; i++) {
-        iconCash[i] = true;
+    const insertComment = () => {
+        if (addEditComment) {
+            setAddEditComment(false);
+        } else {
+            setAddEditComment(true);
+        }
     };
 
     const handlerLikeHeart = () => {
@@ -38,16 +48,35 @@ const CardItinerary = ({ itinerary }) => {
         dispatch(likeItinerary(itinerary._id)).then((res) => {
             if (!res.error) {
                 handlerLikeHeart();
-            }
+            };
         });
     };
 
+    const commentFn = (value, item) => {
+        if (value.trim() == '') {
+            notify.reject('The new comment cannot be empty.')
+        } else {
+            let aux = { ...item };
+
+            aux.comment = value.trim();
+
+            dispatch(addComment(aux)).then(data => {
+                if (data.payload.success) {
+                    notify.successComment('New Comment posted.');
+                    setAddEditComment(false);
+                } else {
+                    notify.reject('Sorry, something went wrong.');
+                };
+            });
+        };
+    };
+
     useEffect(() => {
-        let ref = itinerary.likes.includes(userId)
+        let ref = itinerary.likes.includes(userId);
 
         if (ref) {
             setLikeHeart(true);
-        }
+        };
     }, []);
 
     return (
@@ -100,8 +129,13 @@ const CardItinerary = ({ itinerary }) => {
             <div className={`itineraries-comments col-12 text-center mt-4 d-flex align-items-center flex-column ${display ? '' : 'd-none'}`}>
                 <h2 className='cities-title mt-3 fs-4 col-12'>Comments</h2>
 
-                {itinerary.comments.length > 0 ? itinerary.comments.map((item) => <Comment key={item._id} item={item} />)
-                    : <h2 className='itinerary-time fs-4 col-12 mt-3'>No comments for now, be the first</h2>}
+                <div className='box-comments pb-3'>
+                    {addEditComment ? <Comment item={newComment} city={itinerary.city} newEdit={true} addFn={commentFn} closeFn={insertComment} /> : <></>}
+
+                    {itinerary.comments.toReversed().length > 0 ? itinerary.comments.toReversed().map((item) => <Comment key={item._id} item={item} city={itinerary.city} />)
+                        : <h2 className='itinerary-time fs-4 col-12 mt-4'>No comments for now, be the first.</h2>}
+                </div>
+                {userId ? <button className='comments-button btn-submit p-1' onClick={insertComment}>New Comment</button> : <></>}
             </div>
 
             <div className='more-button w-100' onClick={viewMore}>

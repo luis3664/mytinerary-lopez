@@ -4,12 +4,14 @@ import { signUpUser } from '../../redux/actions/usersAction.js';
 import { GoogleLogin } from '@react-oauth/google';
 import axios from "axios";
 import jwtDecode from "jwt-decode";
+import { useNavigate } from "react-router-dom";
 
 
 const SignUp = ({ screenFn }) => {
     let formData = {};
     const [countries, setCountries] = useState([]);
     const { notify } = useSelector(store => store.users);
+    const navigate = useNavigate();
 
     const dispatch = useDispatch();
 
@@ -63,6 +65,7 @@ const SignUp = ({ screenFn }) => {
             if (!res.success) {
                 res.axios.message.map((error) => notify.reject(error));
             } else {
+                navigate(-1);
                 notify.success(res.userData.firstName);
             }
         });
@@ -85,6 +88,7 @@ const SignUp = ({ screenFn }) => {
             if (!res.success) {
                 res.axios.message.map((error) => notify.reject(error));
             } else {
+                navigate(-1);
                 notify.success(res.userData.firstName);
             }
         });
