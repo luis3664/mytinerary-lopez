@@ -3,11 +3,13 @@ import { useDispatch, useSelector } from 'react-redux';
 import { signInUser } from '../../redux/actions/usersAction.js';
 import { GoogleLogin } from '@react-oauth/google';
 import jwtDecode from 'jwt-decode';
+import { useNavigate } from 'react-router-dom';
 
 const SignIn = ({ screenFn }) => {
     let formData = {};
     const dispatch = useDispatch();
-    const { notify } = useSelector(store => store.users)
+    const { notify } = useSelector(store => store.users);
+    const navigate = useNavigate();
 
     const mail = useRef(null);
     const password = useRef(null);
@@ -24,6 +26,7 @@ const SignIn = ({ screenFn }) => {
             if (!res.success) {
                 notify.reject(res.axios.error);
             } else {
+                navigate(-1);
                 notify.success(res.userData.firstName);
             }
         });
@@ -41,6 +44,7 @@ const SignIn = ({ screenFn }) => {
             if (!res.success) {
                 notify.reject(res.axios.error);
             } else {
+                navigate(-1);
                 notify.success(res.userData.firstName);
             }
         });

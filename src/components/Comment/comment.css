@@ -1,7 +1,5 @@
 .itinerary-comment {
-    width: 90%;
-    min-width: 240px;
-    min-height: 15vh;
+    width: 100%;
     background-color: #ffffff;
     border-radius: 1rem;
     border: solid 2px #cc892d;
@@ -23,4 +21,21 @@
     font-family: 'Inconsolata', monospace;
     font-size: 20px;
     font-weight: bolder;
+}
+
+.container-comment {
+    position: relative;
+}
+
+.active-edit {
+    color: #cd821a !important;
+    background-color: #fbd7a4 !important;
+}
+
+@media (min-width:427px) {
+    .edit-buttons {
+        position: absolute;
+        bottom: -15px;
+        right: -10px;
+    }
 }

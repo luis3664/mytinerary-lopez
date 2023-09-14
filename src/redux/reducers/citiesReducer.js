@@ -1,5 +1,5 @@
 import { createReducer } from "@reduxjs/toolkit";
-import { getCities, getNextPageCities, getPrevPageCities, setSearcher, getCity, likeItinerary } from "../actions/citiesAction";
+import { getCities, getNextPageCities, getPrevPageCities, setSearcher, getCity, likeItinerary, addComment, deleteComment, updateComment } from "../actions/citiesAction";
 
 const initialState = {
     cities: [{ _id: '0', name: 'Mytinerary', lang: 'Travellers', country: 'World', currency: 'Dreams', img: '/discover.jpg' }],
@@ -7,6 +7,19 @@ const initialState = {
     page: 1,
     slides: 1,
     searcher: ''
+};
+
+const fnComment = (state, action) => {
+    if (action.payload.response == 'fail') {
+        return {
+            ...state,
+        }
+    } else {
+        return {
+            ...state,
+            city: action.payload.response
+        }
+    }
 };
 
 export const citiesReducer = createReducer(initialState, (builder) => {
@@ -94,6 +107,8 @@ export const citiesReducer = createReducer(initialState, (builder) => {
                 }
             }
         })
-
+        .addCase(addComment.fulfilled, fnComment)
+        .addCase(deleteComment.fulfilled, fnComment)
+        .addCase(updateComment.fulfilled, fnComment)
 })
 
