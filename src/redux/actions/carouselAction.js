@@ -3,7 +3,7 @@ import axios from "axios"
 
 export const getSlideCarousel = createAsyncThunk('getSlideCarousel', async (page) => {
     try {
-        const res = await axios.get('http://localhost:4000/api/cities/?items=4&page=' + page);
+        const res = await axios.get('https://mytinerary-back-lopez-oxky-dev.fl0.io/api/cities/?items=4&page=' + page);
 
         return res.data.response;
     } catch (err) {
@@ -33,13 +33,13 @@ export const getNextSlideCarousel = createAsyncThunk('getNextSlideCarousel', asy
         let newPage;
 
         if (page == 3) {
-            res = await axios.get('http://localhost:4000/api/cities/?items=4&page=1');
+            res = await axios.get('https://mytinerary-back-lopez-oxky-dev.fl0.io/api/cities/?items=4&page=1');
 
             newPage = 1;
         } else {
             const aux = page + 1;
 
-            res = await axios.get('http://localhost:4000/api/cities/?items=4&page=' + aux);
+            res = await axios.get('https://mytinerary-back-lopez-oxky-dev.fl0.io/api/cities/?items=4&page=' + aux);
 
             newPage = aux;
         };
@@ -78,13 +78,13 @@ export const getPrevSlideCarousel = createAsyncThunk('getPrevSlideCarousel', asy
         let newPage;
 
         if (page == 1) {
-            res = await axios.get('http://localhost:4000/api/cities/?items=4&page=3');
+            res = await axios.get('https://mytinerary-back-lopez-oxky-dev.fl0.io/api/cities/?items=4&page=3');
 
             newPage = 3;
         } else {
             const aux = page - 1;
 
-            res = await axios.get('http://localhost:4000/api/cities/?items=4&page=' + aux);
+            res = await axios.get('https://mytinerary-back-lopez-oxky-dev.fl0.io/api/cities/?items=4&page=' + aux);
 
             newPage = aux;
         };

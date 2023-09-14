@@ -17,7 +17,7 @@ const SignUp = ({ screenFn }) => {
 
     const getContries = async () => {
         try {
-            const res = await axios.get('http://localhost:4000/api/countries/');
+            const res = await axios.get('https://mytinerary-back-lopez-oxky-dev.fl0.io/api/countries/');
             setCountries(res.data.response);
         } catch (err) {
             console.log(err);

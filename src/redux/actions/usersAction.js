@@ -5,7 +5,7 @@ import axios from "axios"
 
 export const signInUser = createAsyncThunk('signInUser', async (user) => {
     try {
-        const res = await axios.post(`http://localhost:4000/api/auth/in`, user);
+        const res = await axios.post(`https://mytinerary-back-lopez-oxky-dev.fl0.io/api/auth/in`, user);
 
         LocalStorage.set('token_user', res.data.token);
 
@@ -19,7 +19,7 @@ export const signInUser = createAsyncThunk('signInUser', async (user) => {
 
 export const signUpUser = createAsyncThunk('signUpUser', async (newUser) => {
     try {
-        const res = await axios.post(`http://localhost:4000/api/auth/up`, newUser);
+        const res = await axios.post(`https://mytinerary-back-lopez-oxky-dev.fl0.io/api/auth/up`, newUser);
 
         LocalStorage.set('token_user', res.data.token);
 
@@ -44,7 +44,7 @@ export const setUser = createAsyncThunk('setUser', async () => {
 
     if (token) {
         try {
-            const res = await axios.get(`http://localhost:4000/api/auth/token`, {
+            const res = await axios.get(`https://mytinerary-back-lopez-oxky-dev.fl0.io/api/auth/token`, {
                 headers: {
                     Authorization: "Bearer " + token
                 }
