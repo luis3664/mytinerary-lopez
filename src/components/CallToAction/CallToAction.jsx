@@ -1,4 +1,4 @@
-import './CallToAction.css'
+import './callToAction.css'
 import { Link as LinkReact } from 'react-router-dom'
 
 const CallToAction = () => {
