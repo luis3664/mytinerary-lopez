@@ -1,4 +1,4 @@
-import './Error404.css'
+import './error404.css'
 import CallToAction from '../../components/CallToAction/CallToAction';
 import { useState, useEffect } from 'react';
 import { useNavigate } from "react-router-dom";
