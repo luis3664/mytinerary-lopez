@@ -1,5 +1,5 @@
 import './App.css'
-import LayoutMain from './layouts/LayoutMain/LayoutMain'
+import LayoutMain from './layouts/layoutMain/LayoutMain'
 import Home from './pages/Home/Home'
 import Cities from './pages/Cities/Cities'
 import Error404 from './pages/Error404/Error404'
