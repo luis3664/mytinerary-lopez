@@ -80,7 +80,7 @@ const SignIn = ({ screenFn }) => {
                 <input type='password' className='login-input' name='password' ref={password} placeholder='Password' autoComplete='on' />
             </label>
 
-            <span className='fs-5 mx-4'>Don't have an account? <span className='screen-link' onClick={screenFn}>Sign In</span></span>
+            <span className='fs-5 mx-4'>Don't have an account? <span className='screen-link' onClick={screenFn}>Sign Up</span></span>
 
             <button type='submit' className='btn-submit fs-4 py-1 px-3'>Log In</button>
         </form>
