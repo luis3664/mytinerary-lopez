@@ -1,4 +1,4 @@
-import '../NavBar/navbar.css'
+import '../NavBar/navBar.css'
 import ButtonLogin from '../ButtonLogin/ButtonLogin'
 import Anchor from '../Anchor/Anchor'
 import { Link as LinkReact } from 'react-router-dom'
