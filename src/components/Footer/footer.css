@@ -20,6 +20,20 @@
     text-shadow: 1.5px 1.5px 0px rgb(0, 0, 0), -1.5px -1.5px 0px rgb(0, 0, 0);
 }
 
-#footerColumns i {
-    font-size: 55px;
+@media (min-width:0px) {
+    #footerColumns i {
+        font-size: 35px;
+    }
+}
+
+@media (min-width:1200px) {
+    #footerColumns i {
+        font-size: 45px;
+    }
+}
+
+@media (min-width:2000px) {
+    #footerColumns i {
+        font-size: 80px;
+    }
 }

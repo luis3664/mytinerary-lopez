@@ -49,6 +49,10 @@
     .carousel-control-next-icon {
         padding: 1em !important;
     }
+
+    #footerColumns i {
+        font-size: 30px;
+    }
 }
 
 @media (min-width:2000px) {
@@ -58,10 +62,6 @@
 
     a {
         font-size: 2.3rem !important;
-    }
-
-    #footerColumns i {
-        font-size: 90px !important;
     }
 
     h1, #logoTinerary {

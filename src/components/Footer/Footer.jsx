@@ -60,7 +60,7 @@ const Footer = () => {
                     {menu.map((link, index) => <Anchor key={index} href={link.href} title={link.title} />)}
                 </div>
                 
-                <div className='col d-flex flex-wrap justify-content-evenly aling-items-center my-auto'>
+                <div className='col d-flex flex-wrap justify-content-evenly aling-items-center my-auto gap-3'>
                     {icons.map((icon, index) => <IconSocial key={index} href={icon.href} classBootstrap={icon.classBootstrap} />)}
                 </div>
             </div>
